@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			a{
+			position: absolute;
+			top: 100px;
+			left: 300px;
+			z-index: 22;
+				/*width: 80px;
+				height: 80px;
+				border: 1px solid red;*/
+				display: inline-block;
+			}
+			.img {
+				background-image: url('https://img.alicdn.com/tps/TB1l3YmLXXXXXb9XXXXXXXXXXXX-150-9000.jpg');
+				background-position: 0 0;
+				width: 75px;
+				height: 75px;
+				/*background: no-repeat 50%;*/
+				background-size: 75px;
+				
+			}
+			.slide-market-20{
+				-webkit-animation: slide-market20 1.5s cubic-bezier(.4, 0, .2, 1) 0s 1;
+				animation: slide-market20 1.5s cubic-bezier(.4, 0, .2, 1) 0s 1;
+			}
+			@-webkit-keyframes slide-market20 {
+				0% {
+					opacity: 0;
+					-webkit-transform: translateY(20px);
+				}
+				to {
+					opacity: 1
+				}
+			}
+			
+			@keyframes slide-market20 {
+				0% {
+					opacity: 0;
+					-webkit-transform: translateY(20px);
+					transform: translateY(20px)
+				}
+				to {
+					opacity: 1
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<a>
+			<div class="img"></div>
+		</a>
+
+	</body>
+
+</html>
+<script type="text/javascript" src="angular/js/jquery-1.12.0.min.js" ></script>
+<script>
+	var timet;
+	$('a').hover(function(){
+		var num = 0;
+		timet = setInterval(function(){
+			num = num-150;
+			if(num>-4440){
+				$('.img').css('background-position','0 '+num+'px');
+			}else{
+				clearInterval(timet);
+			}
+		},40);
+		
+		
+	},function(){
+		var num = -4425;
+		clearInterval(timet);
+		timet = setInterval(function(){
+			num = num+75;
+			if(num < 75){
+				$('.img').css('background-position','0 '+num+'px');
+			}else if(num == 0){
+				$('.img').css('background-position','0 0');
+			}else{
+				clearInterval(timet);
+			}
+		},15);
+	})
+</script>

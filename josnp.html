@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="divCustomers"></div>
+		<script>
+			function callbackFuction(result,methodName){
+				var html = '<ul>';
+				for(var i = 0;i<result.length;i++){
+					html += '<li>'+result[i]+'</li>';
+				}
+				html += '</ul>';
+				document.getElementById('divCustomers').innerHTML = html;
+				
+			}
+		</script>
+		<script type="text/javascript" src="jsonp.php?jsonp=callbackFuction"></script>
+	</body>
+</html>

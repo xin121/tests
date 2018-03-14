@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		1，本地存储localstrage
+		存储方式：以键值对（key-value）的方式存储，永久存储，永不失效，
+		大小：每个域名5m
+		ie9localstorage不支持本地文件，需要将项目部署到服务器
+		序列化内容都可以存储（图片，数组，json,样式，脚本）
+		2，离线缓存（application cache）本地缓存应用所需的文件
+		使用方法：@配置manifest文件
+		<!--页面应用-->
+		<!--<html manifest="demo.appcache"></html>-->
+		<!--自动补全 datalist h5标签-->
+		<form  method="post">
+		    <input list="cars" name="cars" >
+		    <datalist id="cars">
+		        <option value="Volvo">
+		        <option value="BMW">
+		        <option value="Bugatti">
+		        <option value="Cadillac">
+		        <option value="Chevrolet">
+		        <option value="Chrysler">
+		    </datalist>
+		    <input type="submit" />
+		</form>
+	</body>
+</html>
+<script>
+//	本地存储localstrage检测方法
+if(window.localStorage){
+	alert('This browser supports localStorage');
+}else{
+	alert('This browser does NOT support localStorage');
+}
+</script>

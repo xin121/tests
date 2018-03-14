@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+			.top{
+				position: fixed;
+				top: 0;
+				width: 0;
+				height: 0;
+				border: 2px solid #000000;
+				display: none;
+			}
+		</style>
+	</head>
+	<body style="height: 1500px;">
+		<div class="top"></div>
+		<div class="" style="height: ;">
+			nihao
+		</div>
+		hello
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.12.0.min.js" ></script>
+<script>
+var divHeight = $('body').css('height').replace(/[^0-9]/ig,"");
+console.log(divHeight);
+	$(window).scroll(function(){
+		
+		
+		var scrollTop=0;
+	    if(document.documentElement&&document.documentElement.scrollTop)
+	    {
+	        scrollTop=document.documentElement.scrollTop;
+	    }
+	    else if(document.body)
+	    {
+	        scrollTop=document.body.scrollTop;
+	    }
+    if(scrollTop == 0){
+			$('.top').css('display','none');
+		}else{
+			$('.top').css('display','block');
+		}
+		var height = $(window).height();
+		console.log(scrollTop);
+		$('.top').css('width', (scrollTop/(divHeight-height))*100+'%');
+	})
+</script>

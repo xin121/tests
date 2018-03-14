@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/layer.css" />
+		
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/layer.js" ></script>
+	</head>
+	<style>
+		.clic{
+			height: 50px;
+		}
+	</style>
+	<body>
+		<button>弹出框</button>
+		<div class="tupian">
+			<div class="img">
+				
+			</div>
+		</div>
+		<!--<div class="tupian"></div>-->
+	</body>
+</html>
+<script>
+$(".mov").click(function(){
+	$(".clic").remove();
+})
+	$("button").click(function(){
+		layer.open({
+		  type: 2,
+		  area: ['700px', '530px'],
+		  fix: false, //不固定
+		  maxmin: true,
+		  content: 'new_file.html'
+		});
+	})
+</script>

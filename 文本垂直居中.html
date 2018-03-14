@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box1{
+				width: 1000px;
+				height: 300px;
+				background: #000604;
+				position: relative;
+				margin: 0 auto;
+			}
+			.box1-sub{
+				width: 200px;
+				height: 100px;
+				background: #fff;
+				left: 400px;
+				top: 100px;
+				position: absolute;
+			}
+			.box2{
+				height: 100%;
+				width: 100%;
+				margin: 0 auto;
+				background: #000604;
+				display: table-cell;
+				vertical-align: middle;
+				text-align: center;
+			}
+			.box2-sub{
+				background: #ccc;
+				margin: 0 auto;
+				width: 100%;
+			}
+			.box3{
+				/*position: relative;*/
+				height: 300px;
+				background: #4C4C4C;
+			}
+			.box3-sub{
+				/*position: relative;*/
+				transform: translateY(50%);
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<!--定位 盒子宽高已知-->
+		<div class="box1">
+			<div class="box1-sub">
+				buahiofdjhihsdcjuidnhviodujcvf
+			</div>
+		</div>
+		<!--table-cell布局-->
+		<div class="box2">
+			<div class="box2-sub">
+				buahiofdjhihsdcjuidnhviodujcvf
+				buahiofdjhihsdcjuidnhviodujcvf
+				<div>
+					dahfuhcdn
+				</div>
+			</div>
+		</div>
+		<!--定位 + transform ; 适用于 子盒子 宽高不定时-->
+		<div class="box3">
+			<div class="box3-sub">
+				sbhfuihndcvfj SDNHVoif<br />
+				buahiofdjhihsdcjuidnhviodujcvf<br />
+				buahiofdjhihsdcjuidnhviodujcvf<br />
+				buahiofdjhihsdcjuidnhviodujcvf<br />
+				
+			</div>
+		</div>
+	</body>
+</html>

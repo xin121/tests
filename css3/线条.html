@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.line_js {
+				height: 2px;
+				width: 100%;
+				position: absolute;
+				top: 308px;
+				left: 0;
+				    background: -webkit-gradient(linear,left top,right top,from(#0c1729),color-stop(#4e597d),to(#0c1729));
+    background: linear-gradient(90deg,#0c1729,#4e597d,#0c1729);
+			}
+			
+			.activeline_js {
+				height: 100%;
+				width: 10%;
+				background: #ff9e32;
+				background: -webkit-gradient(linear, left top, right top, from(#0c1729), color-stop(#ff8000), to(#ff8000));
+				background: linear-gradient(90deg, #0c1729, #ff8000, #ff8000);
+				animation: widths 3s infinite;
+			}
+			@keyframes widths{
+				0%{
+					width: 10%;
+				}
+				100%{
+					width: 100%;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="line_js">
+			<div class="activeline_js" style=""></div>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript" src="../angular/js/jquery-1.12.0.min.js" ></script>
+<script>
+	
+//	$('.activeline_js').css('width',)
+</script>

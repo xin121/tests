@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div"><h2>使用 AJAX 修改该文本内容</h2></div>
+<button type="button" onclick="load()">修改内容</button>
+XMLHttpRequest用于后台与服务器交换数据，还意味着可以不重新加载网页的情况下，对网页的莫部分跟新。
+variable = new XMLHttpResquet()
+variable = new ActiveXObject("Microsoft.XMLHTTP")
+	</body>
+</html>
+<script>
+	function load(){
+		var xmlhttp;
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		}else{
+			xmlhttp = new ActiveXObjext("Microsoft.XMLHTTP");
+			
+		}
+		xmlhttp.onreadystatechange = function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+				document.getElementById("div").innerHTML = xmlhttp.responseText;
+			} 
+		}
+		xmlhttp.open("GET","angular/txt.json");
+		xmlhttp.send()
+	}
+
+	
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	</head>
+	<body>
+		
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<button ng-click="toggle()">显示</button>
+			<p ng-show="myVar"></p>
+		</div>
+		<!--<div ng-app="myApp" ng-controller="myCtrl">
+			<button ng-click="toggle()">显示</button>
+			<p ng-show="myVar"></p>
+		</div>-->
+	</body>
+</html>
+<script>
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		
+		$scope.sites = [
+		{site:"gool",url:"httpg"},
+		{site:"gol",url:"httpg0"},
+		{site:"gl",url:"httpg00"}
+		]
+	})
+//	var app = angular.module('myApp',[]);
+//	app.controller('myCtrl',function($scope){
+//		$scope.sites = [
+//			{site:"gool",url:"http"},
+//			{site:"gool",url:"http"},
+//			{site:"gol",url:"httpsdsd"}
+//		]
+//	})
+</script>

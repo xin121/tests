@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi = medium-dpi">
+		<meta name="format-detection" content="telephone=no">
+	</head>
+	<body>
+		<div class="" ng-controller="Ctrl">
+			<input ng-model="name" ng-change="cut()"></input>
+			{{name}}
+			<input ng-blur="count=count+1" ng-init="count=0" />
+			{{count}}
+			<input type="checkbox" ng-model="sty" ng-init="sty = true" />
+			<div ng-click="tex(1)">
+				kkk<br />
+				lll
+				<hr />
+			</div>
+			<div ng-if="sty">
+			<h1>Welcome</h1>
+			<p>Welcome to my home.</p>
+			<hr>
+			</div>
+			<div class="">
+				快快快快快快快
+				<div class="nav">
+					<p> class 类名</p>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+<script type="text/javascript" src="js/angular.min.js" ></script>
+<script>
+		var myApp = angular.module("myApp",[]);
+		myApp.controller('Ctrl',['$scope',function($scope){
+			$scope.name = "aa";
+			$scope.cut = function(){
+//				alert("aa");
+			}
+			$scope.tex = function(_this){
+				alert(_this);
+			}
+//			$scope.
+		}])
+</script>

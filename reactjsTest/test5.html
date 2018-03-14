@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="example"></div>
+	</body>
+</html>
+ <script src="https://static.runoob.com/assets/react/react-0.14.7/build/react.min.js"></script>
+    <script src="https://static.runoob.com/assets/react/react-0.14.7/build/react-dom.min.js"></script>
+    <script src="https://static.runoob.com/assets/react/browser.min.js"></script>
+<script type="text/babel">
+	var Hello = React.createClass({
+		getInitalState:function(){
+			return{
+				opacity:1.0
+			};
+		},
+		componentDidMount:function(){[
+			this.timer = setInterval(function(){
+				var opacity = this.state.opacity;
+				opacity -= .05;
+				if(opacity<0.1){
+					
+				}
+			})
+		]}
+	})
+	
+</script>

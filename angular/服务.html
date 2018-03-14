@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-app="myApp">
+			<div ng-controller="myCtrl">
+				<!--{{name}}-->
+				<!--model 适用于文门框input select textarea,绑定HTML表单元素到scope变量中，如果scope中不存在变量，将会创建他-->
+				<input ng-model="name"></input>
+				<!--bind 使用给定的变量或者表达式的值来替换HTML元素的内容如果给定的表达式或者变量修改了，指定替换的HTML元素也会被修改-->
+				<p ng-bind="name"></p>
+				<!--blur 失去焦点时需要执行的表达式 不会覆盖原声的onblur事件-->
+				<!--<a></a><input /><select></select><textarea></textarea>-->
+				<!--change html元素值被改变时需要执行的操作需要搭配model指令使用-->
+				<!--指令不会覆盖原生的onchange事件，事件在值每次改变时触发，只对输入框的针织修改，而不是通过js修改-->
+				<!--selected 列表中《option》元素的selected属性-->
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/angular.min.js" ></script>
+<script>
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.name = "aa";
+	})
+</script>

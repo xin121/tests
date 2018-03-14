@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			/*cursor: pointer;*/
+		}
+	</style>
+	<body ng-app="myApp" ng-controller="myCtrl">
+		<form ng-submit="myFunc()">
+			<input type="text" />
+			<input type="submit" />
+		</form>
+		<p>{{myTxt}}</p>
+	</body>
+</html>
+<script type="text/javascript" src="js/angular.min.js" ></script>
+<script>
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.myTxt = "没有提交";
+		$scope.myFunc = function(){
+			$scope.myTxt = "提交";
+		}
+	})
+</script>

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	 <meta charset="utf-8">
+<head runat="server">
+<title>jQuery实现CheckBox全选、全不选</title>
+
+    </script>
+ 
+</head>
+<body>
+  <script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+<script language=javascript> 
+//第一种方法 
+function selectall1() 
+{ 
+   var a = document.getElementsByTagName("input"); 
+   if(a[0].checked==true){ 
+   for (var i=0; i<a.length; i++) 
+      if (a[i].type == "checkbox") a[i].checked = false; 
+   } 
+   else 
+   { 
+   for (var i=0; i<a.length; i++) 
+      if (a[i].type == "checkbox") a[i].checked = true; 
+   } 
+} 
+//第二种方法 
+function selectall2() { 
+ var tform = document.forms['form1']; 
+ for (var i=0;i<tform.length;i++) 
+ { 
+  var e = tform.elements[i]; 
+  if (e.type == "checkbox") 
+   e.checked = !e.checked; 
+ } 
+} 
+
+//第三种方法，结合上述两种方法 
+
+function selectall3() 
+{ 
+	$(this).checked =!$(this).checked;
+//	$(this)
+   var a = document.getElementsByTagName("input"); 
+   for (var i=0; i<a.length; i++) 
+      if (a[i].type == "checkbox") a[i].checked =!a[i].checked; 
+  } 
+//第四方法 
+function selectall4(id){ //用id区分  
+var tform=document.forms['form1'];  
+for(var i=0;i<tform.length;i++){  
+var e=tform.elements[i];  
+if(e.type=="checkbox" && e.name==id) e.checked=!e.checked;  
+}  
+} 
+//第五种方法 
+function selectall5(theform,thename){ 
+var tform=document.forms[theform]; 
+//document.getElementById("thewen").value='反选'; 
+for(var i=0;i<tform.length;i++){ 
+   var e=tform.elements[i]; 
+   if(e.type=='checkbox' && e.name==thename)e.checked=!e.checked; 
+  } 
+} 
+</script> 
+<form id="form1" name="form1" method="post" action=""> 
+  <input type="checkbox" name="sid" value="1" /> 
+<input type="checkbox" name="sid" value="2" /> 
+<input type="checkbox" name="sid" value="3" /> 
+<input type="checkbox" name="sid" value="4" /> 
+  <input name="thes" type="checkbox" onclick="javascript:selectall1()" value="第一种" /> 
+  <input name="thes" type="button" onclick="javascript:selectall2()" value="第二种" /> 
+  <input name="thes" type="checkbox" onclick="javascript:selectall3()" value="第三种" /> 
+  <input name="thes" type="button" onclick="javascript:selectall4('sid')" value="第四种" /> 
+  <input name="thes" type="button" onclick="javascript:selectall5('form1','sid')" value="第五种" /> 
+</form> 
+
+</body>
+</html>

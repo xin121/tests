@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="IE=9" />
+		<!--移动端-->
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+
+		<!--3秒过后自动跳转或刷新-->
+		<!--<meta http-equiv="refresh" content="3; url=http://www.doyoe.com" />-->
+		<title></title>
+		<style>
+			.box {
+				width: 95%;
+				height: 140px;
+				padding: 10px;
+				position: relative;
+				overflow: hidden;
+				background: #F39B00;
+				background: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 5px, #F39B00 5px);
+				background-size: 15px 15px;
+				background-position: 9px 5px;
+				margin: 0 auto;
+			}
+			
+			.box:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 10px;
+				right: 10px;
+				background-color: #F39B00;
+				z-index: -1;
+			}
+			
+			.svg-triangle {
+				margin: 0 auto;
+				width: 100px;
+				height: 100px;
+				margin-top: 30px;
+			}
+			
+			.svg-triangle polygon {
+				fill: #98d02e;
+				stroke: #65b81d;
+				stroke-width: 2;
+				
+			}
+			.line{
+				line-height: 40px;
+				height: 40px;
+				background: linear-gradient(transparent 39px,#ccc 39px,#ccc) no-repeat;
+				padding-left: 15px;
+				background-position: 15px;
+			}
+			.line:hover{
+				background-color: #f3f3f3;
+			}
+			span{
+				/*文字描边*/
+				-webkit-text-stroke: 1px #f00;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--优惠券-->
+		<div class="box"></div>
+		<!--svg画三角-->
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-triangle">
+			<polygon points="0,0 100,0 50,100" />
+		</svg>
+		<div class="line">
+			<span>lal</span>
+		</div>
+			<dialog>
+    <h1>这是dialog的标题</h1>
+    <div>这是dialog的内容</div>
+    <button id="close_dialog">关闭</button>
+</dialog>
+<button id="open_dialog">打开</button>
+	</body>
+</html>
+<script>
+
+    var dialog = document.getElementsByTagName("dialog")[0],
+        openDialog = document.getElementById("open_dialog"),
+        closeDialog = document.getElementById("close_dialog");
+    openDialog.onclick = function(){
+        dialog.showModal();
+    };
+    closeDialog.onclick = function(){
+        dialog.close();
+    };
+    //数组去重
+console.log([...new Set([2,12,2,12,1,2,1,6,12,13,6])])
+const daclick = function(){
+	return alert("aa");
+}();
+
+</script>

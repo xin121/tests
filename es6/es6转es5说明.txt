@@ -1,0 +1,24 @@
+1：安装babel-cli npm install babel-cil
+2:安装转换插件babel-preset-es2015
+3:创建.babelrc文件
+{
+'presets':["es2015"],
+'plugins':[]
+}
+4：转换babel es6文件(src/index.js) -o es5文件(dist/index.js);
+对象重复组，对多个对象进行合并
+比如从摸个对象去除某部分放到另一个对象的某个位置
+http返回的几次请求
+1XX:信息状态码
+2XX：请求成功
+3XX：重定向
+4XX:客户端错误
+5XX：服务器错误
+基本数据类型：undefined,Null,Boolean,Number,String
+引用类型：对象，数组，函数
+值类型：数值，布尔值，null，undefined
+堆栈数据结构：是一种支持后进先出的集合，后插入的数据,先被取出。
+shift:从数组中把第一个元素删除，并返回这个元素的值，
+unshift:在数组的开头添加一个或更多元素，并返回进的长度
+事件流：从页面中接收事件的顺序，也就是说一个事件产生时，这个事件的传播过程，就是事件流
+类试继承

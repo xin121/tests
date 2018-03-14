@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>turboemily</title>
+</head>
+<body>
+<script>
+    var t = document.getElementsByTagName('title')[0];
+    document.addEventListener('visibilitychange',function () {
+        if(document.hidden){
+            t.innerText='comeback';
+        }else {
+            t.innerText='tuboemily';
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.div{
+			width: 200px;
+			height: 50px;
+			margin: 100px auto;
+			text-align: center;
+			line-height: 50px;
+			border: 1px solid #D1D3D6;
+			cursor: pointer;
+			/*transition: all 0.5s;*/
+		}
+		.div:hover{
+			/*color: red;
+			transition: all 0.5s;
+			border: 1px solid #003EFF;
+			animation: borcolor 3s infinite ;
+			-webkit-animation: borcolor 3s infinite;
+			-webkit-animation-delay: 1s;
+			-o-animation-delay: 1s;
+			-moz-animation-delay: 1s;
+			animation-delay: 1s;
+			border-width: 2px;*/
+			-moz-animation: .25s, 100ms;
+		}
+		
+		.animade{
+			color: red;
+			animation: borcolor 3s;
+			-webkit-animation: borcolor 3s;
+			border-width: 2px;
+		}
+		@-moz-keyframes borcolor{
+			25%{
+				border-top-color: #003EFF;
+			}
+			50%{
+				border-right-color: #003EFF;
+			}
+			75%{
+				border-bottom-color: #003EFF;
+			}
+			100%{
+				border-left-color: #003EFF;
+				border-color:#003EFF;
+			}
+			/*100%{
+				border-color: #003EFF;
+			}*/
+		}
+		@-ms-keyframes borcolor{
+			25%{
+				border-top-color: #003EFF;
+			}
+			50%{
+				border-right-color: #003EFF;
+			}
+			75%{
+				border-bottom-color: #003EFF;
+			}
+			100%{
+				border-left-color: #003EFF;
+				border-color: #003EFF;
+			}
+			/*100%{
+				border-color: #003EFF;
+			}*/
+		}
+		@-webkit-keyframes borcolor{
+			25%{
+				border-top-color: #003EFF;
+			}
+			50%{
+				border-right-color: #003EFF;
+			}
+			75%{
+				border-bottom-color: #003EFF;
+			}
+			100%{
+				border-left-color: #003EFF;
+				border-color: #003EFF;
+			}
+			/*100%{
+				border-color: #003EFF;
+			}*/
+		}
+		@-moz-keyframes colorbo{
+			25%{
+				border-left-color: #D1D3D6;
+			}
+			50%{
+				border-bottom-color: #D1D3D6;
+			}
+			75%{
+				border-right-color: #D1D3D6;
+			}
+			100%{
+				border-top-color: #D1D3D6;
+				border: 2px solid #D1D3D6;
+			}
+			/*100%{
+				border-color: #003EFF;
+			}*/
+		}
+		@-ms-keyframes colorbo{
+			25%{
+				border-left-color: #D1D3D6;
+			}
+			50%{
+				border-bottom-color: #D1D3D6;
+			}
+			75%{
+				border-right-color: #D1D3D6;
+			}
+			100%{
+				border-top-color: #D1D3D6;
+				border: 2px solid #D1D3D6;
+			}
+			/*100%{
+				border-color: #003EFF;
+			}*/
+		}
+		@-webkit-keyframes colorbo{
+			25%{
+				border-left-color: #D1D3D6;
+			}
+			50%{
+				border-bottom-color: #D1D3D6;
+			}
+			75%{
+				border-right-color: #D1D3D6;
+			}
+			100%{
+				border-top-color: #D1D3D6;
+				border: 2px solid #D1D3D6;
+			}
+			/*100%{
+				border-color: #003EFF;
+			}*/
+		}
+		/*.colorbo{
+			color: red;
+			animation: colorbo 3s  ;
+			-webkit-animation: colorbo 3s  ;
+			border-width: 2px;
+		}*/
+	</style>
+	<body>
+		<div class="div ">
+			你好
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.12.0.min.js" ></script>
+<script>
+var timeStr;
+	$(".div").hover(function(){
+		$(this).removeClass("colorbo");
+		$(this).addClass("animade");
+		timeStr = setTimeout(function(){
+			$(".div").css('border-color','#003EFF');            
+		},"3000");
+		
+	},function(){
+		$(this).removeClass("animade");
+//		$(this).addClass("colorbo");
+//		$(".div").css('transition','all 0.5s')
+		$(".div").css('border-color','#D1D3D6');
+		
+		clearTimeout(timeStr);
+	})
+</script>

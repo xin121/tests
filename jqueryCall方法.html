@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		
+	</style>
+	<body>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<table>
+				<tr ng-repeat="x in names">
+					<td>{{x.name}}</td>
+					<td>{{x.Country | uppercase}}</td>
+				</tr>
+			</table>
+			
+		</div>
+		<!--选中值的一个对象-->
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+<script type="text/javascript" src="js/angular.min.js" ></script>
+<script>
+  var app = angular.module('myApp',[]);
+  app.controller('myCtrl',function($scope){
+  	$
+  })
+</script>

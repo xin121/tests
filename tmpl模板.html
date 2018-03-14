@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div"></div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.12.0.min.js" ></script>
+<script type="text/javascript" src="js/tmpl.min.js" ></script>
+<script type="text/x-tmpl" id="test-tmpl">
+	{% for (var i=0; i<o.length; i++) { %}
+		<div class="appRank appHov">
+	  		<a href="">{%=o[i].name %}</a>
+	  		<ul>
+	  			
+	  			{% for (var j=0; j<JSON.parse(o[i].sub_category).length; j++) {  %}
+	  				<li>{%= JSON.parse(o[i].sub_category)[j].name%}</li>
+	  				
+	  				{%}%}
+	  		</ul>
+		</div>
+	{% } %}
+</script>
+<script>
+getNextPageData();
+	function getNextPageData() {
+//		$(".loaders").removeClass('hidden');
+	$.ajax({
+		type:"get",
+		url:"angular/txt.json",
+		success:function(res){
+			if(res) {
+				console.log(res);
+				$("#div").append(tmpl("test-tmpl", res.data.data));
+			}
+		}
+	})
+//  	$.getJSON("angular/txt.json")
+//  	.done(function(res) {
+//  		{if(res) {
+//  			console.log(res.data.data);
+//  			$("#div").append(tmpl("test-tmpl", res.data.data));
+//  		}}
+//  	});
+	}
+</script>

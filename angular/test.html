@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-app="myApp">
+		<div ng-controller="myCtrl"  class="">
+			<p>姓名:<input type="text" ng-model="name" ng-init="name = 'lddd'"/></p>
+			<h1>Hello <span ng-bind="name"></span></h1>
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/angular.min.js" ></script>
+<script>
+	var app = angular.module("myApp",[]);
+	app.controller('myCtrl',function($scope){
+		$scope.name = "llal"
+	})
+</script>
+<script>
+	var box = [
+	{
+		"title":"a",
+		"num":1
+	},
+	{
+		"title":"a",
+		"num":1
+	}
+//	var json = load('demo.json')
+	//字符串转化为json
+	
+	];
+	
+	//eval 执行字符串中的js代码 eval 不安全
+//	JSON.parse
+var json = JSON.stringify(box,function(key,value){
+	if(key == "title"){
+		return 'mr.'+value;
+	}else{
+		return value;
+	}
+});
+alert(json);
+//toJSON:function(){return this.title}优先级比较高
+//XMLHTTPRequest 异步请求，不刷新页面
+//var xhr = new XMLHttpRequest();
+function createXHR(){
+	if(typeof XMLHttpRequest != 'undefined'){
+		return new XMLHttpRequest();
+		
+	}else if(typeof ActiveXObject != 'undefined'){
+		var version = [
+		'MSXML2.XMLHttp.6.0',
+		'MSXML2.XMLHttp.6.0',
+		'MSXML2.XMLHttp.6.0'
+		];
+		for(var i= 0;version.length;i++){
+			try{
+				return new ActiveXObject(version[i]);
+				
+			}catch(e){
+				//跳过
+			}
+		}
+	}else{
+		throw new Error('您的系统浏览器不支持XHR对象');
+	}
+}
+var xhr = createXHR();
+xhr.open('get','txt.json',false)//准备发送请求
+xhr.send(null);//发送请求
+console.log(xhr.responseText);//打印返回信息ie默认获取缓存数据，url后边加随机字符串就好 
+xhr.onreadystatechange = function(){
+	if(xhr.status == 200 && xhr.readyState == 4){
+		alert(xhr.responseText)
+	}else{
+		alert('获取数据错误！'+ xhr.status+',错误信息：')
+	}
+}
+xhr.open('get',)
+
+
+xhr.send(null)
+//xhr.abort()取消异步
+//get一般是url提交请求
+//post一般是web表单提交
+//响应头信息，服务器返回的信息，可以获取，不能修改
+//xhr.getAllResponseHeaders()获取全部头信息
+//请求头信息,客户端发送的信息,可以修改,不能获取
+//encodeURI() 解码
+//encodeURIComponent()编码
+function params(url,name,value){
+	url += url.indexOf('?') == -1 ? '?' : '&';
+	url += name + '=' + value
+}
+//post比get请求消耗内存，post比get请求快
+
+</script>
+<script>
+//	封装ajax
+function ajax(url,Async,obj){
+	var xhr = createXHR();
+	obj.url = obj.url +'?rand='+Math.random()+'&'+params(obj.data);
+	xhr.onreadystatechange = function (){
+		if(xhr.status == 200 && xhr.readyState == 4){
+			obj.success?(xhr.responseText);
+		}else{
+			obj.error('__BROWSERTOOLS_CONSOLE_BREAKMODE_FUNC');
+		}
+	}
+	xhr.open(obj.method.obj.url,obj.async)
+}
+//$(selector).serialize() 序列化表单值
+
+</script>
+
+

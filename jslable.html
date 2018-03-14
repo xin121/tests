@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<form name="f">
+			<input name="t1" /><br/>
+			<input name="t2" /><br/>
+			<input name="t3" /><br/>
+			<input name="t4" /><br/>
+			<input type="submit" />
+		</form>
+	</body>
+
+</html>
+
+<script>
+	var f = document.forms.f;
+	f.onsubmit = function() {
+		chk: {
+			if(f.t1.value == "") {
+				alert("aa");
+				//跳出
+				break chk;
+			}
+			if(f.t2.value == "") break chk;
+			if(f.t3.value == "") break chk;
+			if(f.t4.value == "") break chk;
+			alert("验证通过！");
+			return true;
+		};
+		alert("验证失败");
+		return false;
+
+	};
+
+	togo: for(var i = 0; i < 100; i++) {
+		if(i == 50) {
+			console.log(i);
+			break togo;
+		}
+	}
+</script>

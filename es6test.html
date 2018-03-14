@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function add(...values){
+		let sum = 0;
+		for (var val of values){
+			sum += val;
+		}
+		return sum;
+	}
+//	console.log(add(2,5,3,7,1,1,1));
+"use strict";//严格模式
+	function push(array,...items){
+		
+		items.forEach(function(item){
+			array.push(item);
+		})
+	}
+	var a = [];
+	push(a,1,2,3);
+	console.log(push(a,1,2,3))
+	
+	
+</script>

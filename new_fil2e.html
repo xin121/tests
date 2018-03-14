@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			{{firstName+" "+lastName}}
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.12.0.min.js" ></script>
+<script type="text/javascript" src="js/angular.min.js" ></script>
+<script>
+	var app = angular.module('myApp',[]);
+	app.config(function($provider){
+		$provider.prototype('MathService')
+	})
+</script>

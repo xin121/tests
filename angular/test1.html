@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="css/css.css" />
+	<body>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<input ng-model="firstName" ng-init="firstName='da'" />
+			<span>ssssnihaojkahdkdjk</span>
+			<span ng-bind="firstName"></span>
+			<span ng-bind="lastName"></span>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/angular.min.js" ></script>
+<script>
+	var app = angular.module("myApp",[]);
+	app.controller('myCtrl',function($scope){
+//		$scope.firstName = "aa";
+		$scope.lastName = "bb"
+	})
+</script>

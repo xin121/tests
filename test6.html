@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>-->
+	</head>
+	<body>
+		<input id="button" type="button" value="button" onclick="showmodal();" />
+	</body>
+</html>
+<script>
+	function showmodal(){
+		var ret = window.open("new_file.html","null","dialogWidth:350px;dialogHeight:350px;help:no;status:no");
+		if(ret){
+			alert("zhen");
+		}else{
+			alert("jia");
+		}
+	}
+</script>

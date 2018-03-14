@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script src="js/jquery-1.12.0.min.js"></script>
+<script>
+	var options = {
+		id:2,
+		sex:"女",
+		errorFn:function(ids){
+			console.log(ids);
+		}
+	}
+	function test (options){
+		this.test = $.extend({
+		id:1,
+		name:"lala",
+		errorFn:function(){}
+		},options||{});
+	}
+	test.prototype.testStr = function(ids,fn){
+		var that = this
+		fn&&fn();
+		console.log(ids);
+		console.log(that.test.name);
+		$.ajax({
+			url:'angular/txt.json',
+			type:'get',
+			dataType:'json',
+			success:function(data){
+				that.test.errorFn(data);
+			}
+			
+		})
+	}
+	var test = new test(options);
+	test.testStr("aa",function(){
+		console.log('id');
+	});
+</script>

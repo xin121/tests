@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		
+	</style>
+	<body>
+		<div id="example"></div>
+    
+	</body>
+</html>
+<script type="text/javascript" src="js/react.min.js" ></script>
+<script type="text/javascript" src="js/react-dom.min.js" ></script>
+<script type="text/javascript" src="js/browser.min.js" ></script>
+<script type="text/babel">
+	var myStyle = {
+			fontSize: 20,
+			color: '#FF0000'
+		};
+     ReactDOM.render(
+		<div>
+		<h1 style={myStyle}>菜鸟教程</h1>
+		<h2>欢迎学习 React</h2>
+	    <p data-myattribute = "somevalue">这是一个很不错的 JavaScript 库!</p>
+	    </div>
+		,
+		document.getElementById('example')
+	);
+    </script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body style="height: 5000px;position:relative;">
+		<input style="position: absolute;bottom: 0;" type="button" value="按钮" onclick="backToTop()"/>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.12.0.min.js" ></script>
+<script>
+	var backToTop = function (rate) {
+    var doc = document.body.scrollTop? document.body : document.documentElement;
+    var scrollTop = doc.scrollTop;
+    
+    var top = function () {
+        scrollTop = scrollTop + (0 - scrollTop) / (rate || 2);
+        
+        // 临界判断，终止动画
+        if (scrollTop < 1) {
+            doc.scrollTop = 0;
+            return;
+        }
+        doc.scrollTop = scrollTop;
+        // 动画gogogo!
+        requestAnimationFrame(top);    
+    };
+    top();
+};
+</script>

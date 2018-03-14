@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		所谓的闭包就是在狗仔函数内定义另外的函数作为目标对象的方法行数，而这个对象的
+		方法函数反过来引用外层函数体重的临时变量
+		<!-- Large modal -->
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
+		<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+		 <div class="modal-dialog modal-lg" role="document">
+		 <div class="modal-content">
+		  ...
+		 </div>
+		 </div>
+		</div>
+		<!-- Small modal -->
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
+		<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+		 <div class="modal-dialog modal-sm" role="document">
+		 <div class="modal-content">
+		  ...
+		 </div>
+		 </div>
+		</div>
+	</body>
+</html>
+<script>
+	function f1(){
+		n = 999;
+		function f2(){
+			alert(n);
+		}
+		return f2;
+	}
+	var result = f1();
+	result();
+</script>
+<script>
+	function a(){
+		var i = 0;
+		function b(){
+			alert(++i)
+		}
+		return b;
+	}
+	var c = a();
+	 c();
+		 
+</script>
+<script>
+	function f(x){
+		var g = function (){
+			return x;
+		}
+		return g;
+		
+	}
+	var h = f(3);
+	console.log(h());
+</script>
+<script>
+	function a(){
+		return 'ss';
+	}
+	function b(){
+		return a();
+	}
+	alert(b());
+</script>
+<script>
+	var CachedSearchBox = (function(){
+		var cache = {},
+		count = [];
+		return {
+			attachSerchBox:function(dsid){
+				if(dsid in cache){
+					return cache[dsid];
+				}
+				var fsb = new uikit.webctrl.searchBox(dsid);
+				cache[disd] = fsb;
+				if(count.length>100){
+					delete cache[count.shift()];
+				}
+				return fsb;
+			},
+			
+		}
+	})()
+	
+</script>
+<script>
+	<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="gb2312" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<title>详解HTML5 LocalStorage 本地存储 _html5教程技巧_脚本之家</title>
+<meta name="keywords" content="LocalStorage,本地存储,localstorage存储,html5本地存储" />
+<meta name="description" content="本篇文章主要介绍了HTML5 LocalStorage 本地存储 ，HTML5 storage提供了一种方式让网站能够把信息存储到你本地的计算机上，并再以后需要的时候进行获取。有兴趣的可以了解一下。
+" />
+<link rel="alternate" media="only screen and(max-width: 640px)" href="http://m.jb51.net/html5/521131.html" />
+<meta http-equiv="mobile-agent" content="format=html5; url=http://m.jb51.net/html5/521131.html" />
+<meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.jb51.net/html5/521131.html" />
+<script type="text/javascript">
+var tougao="63";var downlm="art";
+(function(){var reWriteUrl=function(url){if(url){var Splits=url.split("/"),siteName=window.location.pathname;if(typeof siteName!=="undefined"){return"http://m.jb51.net"+siteName}}};if(/Android|webOS|iPhone|iPad|Windows Phone|iPod|BlackBerry|SymbianOS|Nokia|Mobile/i.test(navigator.userAgent)){var url=window.location.href;var pathname=window.location.pathname;if(url.indexOf("?pc")<0){try{window.location.href=reWriteUrl(url)}catch(e){}}}})();
+</script>
+<link type="text/css" href="/skin/2016/base.css" rel="stylesheet" />
+<link type="text/css" href="/skin/2016/home.css" rel="stylesheet" />
+<script type="text/javascript" src="http://common.jb51.net/jslib/jquery/jquery.min.js"></script>
+<script type=text/javascript src="http://common.jb51.net/js/base.js"></script>
+</head>
+<body>
+<!--head Star -->
+<div id="head">
+  <div class="toolBar">
+  <div class="main">
+    <!--topNav Star -->
+    <div class="topNav clearfix">
+      <ul class="navList fl">
+        <li>
+          <div class="one"><a href="http://www.jb51.net" target="_blank">脚本之家</a></div>
+        </li>
+        <li>
+          <div class="one"><a href="http://www.jb51.net/softs/" target="_blank">软件下载<i class="icon"></i></a></div>
+          <div class="two">
+                <a href="/softs/android.html" target="_blank">android软件</a> <a href="/softs/mac.html" target="_blank">MAC软件</a> <a href="/qudong/" target="_blank">驱动下载</a> <a href="/fonts/" target="_blank">字体下载</a> <a href="/dll/" target="_blank">DLL下载</a> </div>
+        </li>
+        <li>
+          <div class="one"><a href="http://www.jb51.net/codes/" target="_blank">源码下载<i class="icon"></i></a></div>
+          <div class="two"> <a href="/codes/asp.html" target="_blank">asp源码</a> <a href="/codes/php.html" target="_blank">php源码</a> <a href="/codes/aspnet.html" target="_blank">asp.net源码</a> <a href="/codes/jsp.html" target="_blank">jsp源码</a> <a href="/codes/editor.html" target="_blank">网页编辑器</a> <a href="/codes/list123_1.html" target="_blank">数据库管理</a> <a href="/jiaoben/" target="_blank">脚本下载</a> </div>
+        </li>
+        <li>
+          <div class="one"><a href="http://tools.jb51.net" target="_blank">在线工具<i class="icon"></i></a></div>
+          <div class="two"> <a href="/shouce/" target="_blank">在线手册</a> <a href="/tools/cssyasuo.shtml" target="_blank">CSS格式化</a> <a href="http://tools.jb51.net/tools/js_geshihua.asp" target="_blank">JS格式化</a> <a href="/tools/html-js.htm" target="_blank">Html转化为Js</a> <a href="http://tools.jb51.net/regex/javascript" target="_blank">js正则表达式</a> </div>
+        </li>
+        <li>
+          <div class="one"><a href="http://www.jb51.net/w3school/" target="_blank">网页教程基础</a></div>
+        </li>
+			<li>
+          <div class="one"><a href="http://s.jb51.net" target="_blank">服务器常用软件</a></div>
+        </li>
+		<li>
+          <div class="one"><a href="http://m.jb51.net" target="_blank">手机版</a></div>
+          <div class="two"><img src="http://files.jb51.net/images/m.jb51.net.png" data-baiduimageplus-ignore /></div>      
+        </li>
+        <li class="watch">
+          <div class="one"><a href="http://weibo.com/jb51net" target="_blank" rel="nofollow"><i class="icon"></i>关注微信</a></div>
+          <div class="two"><img src="http://files.jb51.net/images/weixin_200.gif" data-baiduimageplus-ignore /></div>
+        </li>
+      </ul>
+      <div class="navUser mt5 fr" id="jb51_topbar" >
+          <div class="userbar"><a href="http://tougao.jb51.net" target="_blank">投稿中心</a><img style="width:32px; height:22px" src="http://common.jb51.net/skin/2016/images/newn.gif" alt="hot"></div>
+      </div>
+    </div>
+    <!--topNav End -->
+  </div>
+</div>
+
+  <div class="main clearfix">
+    <div class="mtb10 clearfix">
+      <div class="logo"><a href="http://www.jb51.net/"><img src="http://www.jb51.net/images/logo.gif" title="脚本之家" alt="脚本之家" /></a></div>
+      <div class="logom fl"><span id="logo_m" class="jbTestPos"></span></div>
+      <div class="logor fr"><span id="logo_r" class="jbTestPos"></span></div>
+    </div>
+<!-- 导航-->
+<DIV class="nav_top clearfix">
+<UL>
+<li><a href="http://www.jb51.net/web/">网页制作</a></li>
+<li><a href="http://www.jb51.net/list/index_1.htm">网络编程</a></li>
+<li><a href="http://www.jb51.net/list/index_96.htm">脚本专栏</a></li>
+<li><a href="http://www.jb51.net/jiaoben/">脚本下载</a></li>
+<li><a href="http://www.jb51.net/list/index_104.htm">数据库</a></li>
+<li><a href="http://www.jb51.net/cms/">CMS教程</a></li>
+<li><a href="http://www.jb51.net/books/">电子书籍</a></li>
+<li><a href="http://www.jb51.net/pingmian/">平面设计</a></li>
+<li><a href="http://www.jb51.net/media/">媒体动画</a></li>
+<li><a href="http://www.jb51.net/os/">操作系统</a></li>
+<li><a href="http://www.jb51.net/yunying/">网站运营</a></li>
+<li><a href="http://www.jb51.net/hack/">网络安全</a></li>
+<li class="last"><a href="http://www.jb51.net/shouce/">在线手册</a></li>
+</UL>
+</DIV>
+
+<!--导航结束-->
+<div class="NavBar clearfix ptb10">
+<div class="fl w690">
+<div class="box mb15 mt10"><i class="icon"></i>您的位置： 
+				<a href='http://www.jb51.net/'>主页</a> > <a href='/web/'>网页制作</a> > <a href='/html5/'>html5</a> > </div>
+</div>
+<div class="fr w300"><div class="search">
+<form action="http://so.jb51.net/cse/search" target="_blank">
+    <input type="hidden" name="s" value="10520733385329581432">
+    <input type="hidden" name="ie" value="gbk">
+    <input type="text" name="q" class="key_input" placeholder="请输入关键词">
+    <input type="submit" value="搜索" class="c_btn">
+</form></div></div>
+  </div>
+</div>
+<!--head End -->
+<div class="main mb10 clearfix">
+<div class="clearfix"><span id="tonglan1" class="jbTestPos"></span></div>
+</div>
+
+<!--content Star -->
+<div id="contents">
+ <div class="main clearfix">
+      <div class="w690 fl">
+      <div class="article-content border">
+      <div class="title">
+            <h1 class="YaHei">详解HTML5 LocalStorage 本地存储 </h1>
+            <p>作者：枫伶忆  字体：[<a href="javascript:turnbig()">增加</a> <a href="javascript:turnsmall()">减小</a>] 来源：互联网 时间：12-23 11:00:49<a href="#comments"> 我要评论</a></p>
+        </div>
+        <div class="art_desc mt10">本篇文章主要介绍了HTML5 LocalStorage 本地存储 ，HTML5 storage提供了一种方式让网站能够把信息存储到你本地的计算机上，并再以后需要的时候进行获取。有兴趣的可以了解一下。
+</div>
+        <div id="con_all">
+<div id="con_da1"><span id="gg_l" class="jbTestPos"></span></div>
+<div id="con_da2"><span id="gg_r" class="jbTestPos"></span></div>
+</div>
+        <div id="content">
+<p><strong><font color="#ff0000">1.前言</font></strong></p>
+<p>HTML5 storage提供了一种方式让网站能够把信息存储到你本地的计算机上，并再以后需要的时候进行获取。这个概念和cookie相似，区别是它是为了更大容量存储设计的。Cookie的大小是受限的，并且每次你请求一个新的页面的时候cookie都会被发送过去。HTML5的storage是存储在你的计算机上，网站在页面加载完毕后可以通过Javascript来获取这些数据。首先自然是检测浏览器是否支持本地存储。在HTML5中，本地存储是一个window的属性，包括localStorage和sessionStorage，从名字应该可以很清楚的辨认二者的区别，前者是一直存在本地的，后者只是伴随着session，窗口一旦关闭就没了。二者用法完全相同，这里以localStorage为例。</p>
+<div class="jb51code">
+<pre class="brush:js;">if(window.localStorage){
+ alert('支持localStorage');
+}else{
+ alert('不支持localStorage');
+}</pre>
+</div>
+<p><strong><font color="#ff0000">2.基本用法</font></strong></p>
+<p>存储数据的方法就是直接给window.localStorage添加一个属性，例如：window.localStorage.a 或者 window.localStorage[&quot;a&quot;]。它的读取、写、删除操作方法很简单，是以键值对的方式存在的，如下：</p>
+<div class="jb51code">
+<pre class="brush:js;">localStorage.name = &quot;kobi&quot;;//设置name为&quot;kobi&quot;
+localStorage[&quot;name&quot;] = &quot;koko&quot;;//设置name为&quot;koko&quot;，覆盖上面的值
+localStorage.setItem(&quot;age&quot;,&quot;18&quot;);//设置age为&quot;18&quot;
+var a1 = localStorage[&quot;name&quot;];//获取name的值
+var a2 = localStorage.age;//获取age的值
+var b = localStorage.getItem(&quot;name&quot;);//获取name的值
+localStorage.removeItem(&quot;c&quot;);//清除c的值</pre>
+</div>
+<p>这里最推荐使用的自然是getItem()和setItem()，清除键值对使用removeItem()。如果希望一次性清除所有的键值对，可以使用clear()。另外，HTML5还提供了一个key()方法，可以在不知道有哪些键值的时候使用，如下：</p>
+<div class="jb51code">
+<pre class="brush:js;">var storage = window.localStorage;
+function showStorage(){
+ for(var i=0;i&lt;storage.length;i++){
+  //key(i)获得相应的键，再用getItem()方法获得对应的值
+  document.write(storage.key(i)+ &quot; : &quot; + storage.getItem(storage.key(i)) + &quot;&lt;br&gt;&quot;);
+ }
+}</pre>
+</div>
+<p><strong><font color="#ff0000">&nbsp;3.业务需求</font></strong></p>
+<p>表单实时保存数据，下次打开则提示是否继续编辑。图片等控件不支持，只支持简单的控件。【防止突然断电或浏览器崩溃时，下次打开还可以继续编辑并保存】。这样自然而然就想到了HTML5的本地存储功能。既然js写的烂，写的差，就当练手了。</p>
+<p align="center"><img alt="" src="http://files.jb51.net/file_images/article/201612/20161222164906535.png?20161122165020" /></p>
+<p>其实这些数据的保存很简单，无非就是一些简单的标签数据的保存。先来一个最简单的js版本。</p>
+<div class="jb51code">
+<pre class="brush:js;">/**
+ * 功能：保存用户修改完form标签内容在LocalStorage中。
+ * 作者：黄金锋 
+ * 版本：version 2.0
+ */
+
+define(function () {
+
+    //从localStorage中加载数据
+    function onload(form) {
+
+        var fh = form_handler;
+        var p = fh.getParams(form);
+        if (!p.bimId || !p.formId || !p.iid) {
+            return;
+        }
+        var id = 'FORM_' + DCI.LoginUser.UserId + '_' + p.bimId + '_' + p.formId + '_' + p.iid;
+        //alert(id);
+
+        var formDataDb;
+        var allControl = $(form).find(&quot;input:text[name],textarea[name]&quot;);
+
+        //从本地取
+        var storage = localStorage.getItem(id);
+        if (storage != null) {
+            var myData = JSON.parse(storage);
+            allControl.each(function (i, e) {
+                var name = $(e).attr(&quot;name&quot;);
+                if (myData[name] != null) {
+                    $(e).val(myData[name]);
+                    $(e).change();
+                }
+            });
+        }
+
+
+        //绑定change事件
+        allControl.each(function (i, el) {
+            var name = $(el).attr('name');
+            if (name) {
+                $(el).on('change', function () {
+                    onchange(this);
+                });
+            }
+        });
+
+        //保存修改的数据
+        function onchange(el) {
+            var storage = localStorage.getItem(id);
+            if (storage == null) {
+                formDataDb = new Object();
+                var key = $(el).attr(&quot;name&quot;);
+                var value = $(el).val();
+                formDataDb[key] = value;
+                localStorage.setItem(id, JSON.stringify(formDataDb));
+            } else {
+                var myData = JSON.parse(storage);
+                var key = $(el).attr(&quot;name&quot;);
+                var value = $(el).val();
+                myData[key] = value;
+                localStorage.setItem(id, JSON.stringify(myData));
+            }
+        }
+    };
+
+    //删除localStorage中的数据
+    function onsave(form) {
+        var fh = form_handler;
+        var p = fh.getParams(form);
+        var id = 'FORM_' + DCI.LoginUser.UserId + '_' + p.bimId + '_' + p.formId + '_' + p.iid;
+        localStorage.removeItem(id);
+
+        var allGrid = $(form).find(&quot;.form-table&quot;);
+        var formId = $(form).data(&quot;formid&quot;);
+        allGrid.each(function (index,element) {
+            var formName = $(element).find(&quot;input:hidden[data-formid]&quot;).attr(&quot;name&quot;);
+            var storageKey = &quot;FORM_&quot; + formId + &quot;_&quot; + formName;
+            localStorage.removeItem(storageKey);
+        });
+    }
+
+    return {
+        onload: onload,
+        onsave: onsave,
+    }
+});
+
+</pre>
+</div>
+<p>表单都是自动通过模版生成的，这里附上表单加载需要的form.js.</p>
+<p>代码太长，这里就不直接贴出来了，大家自己下载下来看吧 <a target="_blank" href="http://xiazai.jb51.net/201612/yuanma/form.js">点击这里下载</a></p>
+<p><strong><font color="#ff0000">4.Grid控件的数据保存</font></strong></p>
+<p align="center"><img alt="" src="http://files.jb51.net/file_images/article/201612/20161222165401660.png?20161122165411" /></p>
+<p>Grid控件其实就是一个div，公司的一些页面表单都是动态生成的，表单上面的控件也是动态生成的，所有很多东西都是自己手写的。下面是Grid控件的结构。</p>
+<div class="jb51code">
+<pre class="brush:xhtml;"> &lt;div class=&quot;FM000103-SBCLBJ form-table  &quot;&gt; 
+   &lt;input data-datagrid=&quot;true&quot; data-formid=&quot;FM000034&quot; name=&quot;SBCLBJ&quot; type=&quot;hidden&quot; /&gt; 
+   &lt;input data-param=&quot;init&quot; type=&quot;hidden&quot; value=&quot;{&amp;quot;ID&amp;quot;:&amp;quot;$[ID]&amp;quot;,&amp;quot;IID&amp;quot;:&amp;quot;$(autoid)&amp;quot;}&quot; /&gt; 
+   &lt;input data-param=&quot;initsame&quot; type=&quot;hidden&quot; value=&quot;[]&quot; /&gt; 
+   &lt;div class=&quot;form-table-header&quot;&gt; 
+    &lt;div style=&quot;width:48px;&quot;&gt;
+     编辑
+    &lt;/div&gt; 
+    &lt;div style=&quot;width:50px;&quot;&gt;
+     序号
+    &lt;/div&gt; 
+    &lt;div style=&quot;width:60px;&quot;&gt;
+     是否上传
+    &lt;/div&gt; 
+    &lt;div style=&quot;width:380px;&quot;&gt;
+     申报材料内容
+    &lt;/div&gt; 
+    &lt;div style=&quot;width:80px;&quot;&gt;
+     备注
+    &lt;/div&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;form-table-body&quot;&gt; 
+    &lt;table class=&quot;table-hover&quot;&gt; 
+     &lt;colgroup span=&quot;6&quot;&gt; 
+      &lt;col width=&quot;48&quot; /&gt; 
+      &lt;col width=&quot;50&quot; data-type=&quot;RowNumber&quot; /&gt; 
+      &lt;col width=&quot;0&quot; data-type=&quot;Label&quot; data-index=&quot;ID&quot; class=&quot;hidden&quot; /&gt; 
+      &lt;col width=&quot;0&quot; data-type=&quot;Label&quot; data-index=&quot;IID&quot; class=&quot;hidden&quot; /&gt; 
+      &lt;col width=&quot;60&quot; data-type=&quot;CheckBox&quot; data-index=&quot;CDZL&quot; /&gt; 
+      &lt;col width=&quot;380&quot; data-type=&quot;TextArea&quot; data-index=&quot;ATDESC&quot; /&gt; 
+      &lt;col width=&quot;80&quot; data-type=&quot;TextArea&quot; data-index=&quot;BZ&quot; /&gt; 
+     &lt;/colgroup&gt; 
+     &lt;tbody&gt;
+      &lt;tr&gt; 
+       &lt;td class=&quot;form-table-edit&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-edit&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;&lt;/td&gt; 
+       &lt;td&gt;1&lt;/td&gt; 
+       &lt;td class=&quot;hidden&quot;&gt;BM00001141&lt;/td&gt; 
+       &lt;td class=&quot;hidden&quot;&gt;4643&lt;/td&gt; 
+       &lt;td&gt;&lt;input type=&quot;checkbox&quot; value=&quot;1&quot; checked=&quot;checked&quot; /&gt;&lt;/td&gt; 
+       &lt;td&gt;11111&lt;/td&gt; 
+       &lt;td&gt;2222&lt;/td&gt; 
+      &lt;/tr&gt; 
+      &lt;tr&gt; 
+       &lt;td class=&quot;form-table-edit&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-edit&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;&lt;/td&gt; 
+       &lt;td&gt;2&lt;/td&gt; 
+       &lt;td class=&quot;hidden&quot;&gt;BM00001141&lt;/td&gt; 
+       &lt;td class=&quot;hidden&quot;&gt;4644&lt;/td&gt; 
+       &lt;td&gt;&lt;input type=&quot;checkbox&quot; value=&quot;0&quot; /&gt;&lt;/td&gt; 
+       &lt;td&gt;87789789789798789&lt;/td&gt; 
+       &lt;td&gt;333&lt;/td&gt; 
+      &lt;/tr&gt; 
+     &lt;/tbody&gt;
+    &lt;/table&gt; 
+   &lt;/div&gt; 
+   &lt;div class=&quot;form-table-footer&quot;&gt; 
+    &lt;button type=&quot;button&quot; class=&quot;btn add-row&quot;&gt;新增&lt;/button&gt; 
+    &lt;button type=&quot;button&quot; class=&quot;btn del-row&quot;&gt;删除&lt;/button&gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt;
+</pre>
+</div>
+<p>下面是完成Grid数据保存的js.</p>
+<div class="jb51code">
+<pre class="brush:js;">/**
+ * 功能：保存用户修改完form标签内容在LocalStorage中。
+ * 作者：黄金锋 (549387177@qq.com)
+ * 日期：2015-11-1  11:14:01
+ * 修改：2015-11-19 16:09:00
+ * 版本：version 3.0
+ */
+
+define(function () {
+
+    //从localStorage中加载数据
+    function onload(form) {
+
+        var fh = form_handler;
+        var p = fh.getParams(form);
+        if (!p.bimId || !p.formId || !p.iid) {
+            return;
+        }
+        var id = 'FORM_' + DCI.LoginUser.UserId + '_' + p.bimId + '_' + p.formId + '_' + p.iid;
+
+        var formDataDb;
+        var allControl = $(form).find(&quot;input:text[name],textarea[name]&quot;);
+
+        //从本地取
+        var storage = localStorage.getItem(id);
+        if (storage != null)
+        {
+            if (confirm(&quot;是否加载缓存数据&quot;)) {
+
+                var myData = JSON.parse(storage);
+                allControl.each(function (i, e) {
+                    var name = $(e).attr(&quot;name&quot;);
+                    if (myData[name] != null) {
+                        $(e).val(myData[name]);
+                        $(e).change();
+                    }
+                });
+            }
+        }
+
+        var allGrid = $(form).find(&quot;.form-table&quot;);
+        var formId = $(form).data(&quot;formid&quot;);
+        var formStorage= localStorage.getItem(&quot;FORM_&quot; + formId + &quot;_isGridData&quot;);
+        if (formStorage==&quot;1&quot;)
+        {
+            if (confirm(&quot;是否加载Grid缓存数据&quot;))
+            {
+                //给Grid控件赋值
+                allGrid.each(function (index, element) {
+                    var formName = $(element).find(&quot;input:hidden[data-formid]&quot;).attr(&quot;name&quot;);
+                    var ipt = $(element).find(&quot;input[name]&quot;);
+                    var table = $(element).find(&quot;input:hidden[data-formid]&quot;).siblings(&quot;.form-table-body&quot;).find(&quot;.table-hover&quot;);
+                    var storageKey = &quot;FORM_&quot; + formId + &quot;_&quot; + formName;
+                    var data = localStorage.getItem(storageKey);
+                    var myData = JSON.parse(data);
+                    if (myData != null) {
+                        alert(data);
+                            var InsertTotal = myData[&quot;Total&quot;][&quot;InsertTotal&quot;];
+                            var DelTotal = myData[&quot;Total&quot;][&quot;DelTotal&quot;];
+                            var UpdateTotal = myData[&quot;Total&quot;][&quot;UpdateTotal&quot;];
+                            var trIIDIndex = myData[&quot;trIIDIndex&quot;][&quot;IID&quot;];
+                            if (InsertTotal &gt; 0) {
+                                for (var i = 0; i &lt; InsertTotal; i++) {
+                                    var tr = $('&lt;tr&gt;&lt;/tr&gt;');
+                                    var row_data = myData[&quot;Insert&quot;][i];
+                                    table.find('colgroup col').each(function (idx, el) {
+                                        var td = $('&lt;td&gt;&lt;/td&gt;');
+                                        if (idx == 0) {
+                                            td.append('&lt;span class=&quot;glyphicon glyphicon-edit&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;');
+                                            td.addClass('form-table-edit');
+                                        }
+                                        else {
+                                            var index = $(el).data('index');
+                                            var type = $(el).data('type')
+                                            if (type == &quot;RowNumber&quot;) {
+                                                var val = row_data[&quot;RowNumber&quot;];
+                                                td.html(val);
+                                            }
+                                            if (type == &quot;CheckBox&quot;) {
+                                                var val = row_data[index];
+                                                td.append('&lt;input type=&quot;checkbox&quot; value=&quot;' + val + '&quot; ' + (val == '1' ? 'checked=&quot;checked&quot;' : '') + ' /&gt;');
+                                            }
+                                            if (index &amp;&amp; type != &quot;CheckBox&quot;) {
+                                                td.html(row_data[index]);
+                                            }
+                                        }
+                                        if ($(el).attr('width') == '0')
+                                            td.addClass('hidden');
+                                        td.appendTo(tr);
+                                    });
+                                    //table.find(&quot;tbody&quot;).append(tr);
+                                    table.append(tr);
+
+                                    tr.data(&quot;insert&quot;, true);
+                                    ipt.change();
+                                }
+                            }
+
+                            if (UpdateTotal &gt; 0) {
+
+                                for (var i = 0; i &lt; UpdateTotal; i++) {
+                                    var row_data = myData[&quot;Update&quot;][i];
+                                    var trIID = row_data[&quot;trIID&quot;];
+                                    var trIndex;
+                                    table.find(&quot;tr&quot;).each(function (idx, ele)
+                                    {
+                                        var iid = $(ele).find(&quot;td&quot;).eq(trIIDIndex).html();
+                                        if (iid == trIID) {
+                                            trIndex = idx;
+                                        }
+                                    });
+
+                                    var cells = table.find(&quot;tr&quot;).eq(trIndex);
+                                    table.find('colgroup col').each(function (idx, el)
+                                    {
+                                        var index = $(el).data('index');
+                                        if (index)
+                                        {
+                                            var td = cells.find(&quot;td&quot;).eq(idx);
+                                            var type = $(el).data('type');
+                                            var test =new Object();
+                                           
+                                            var text = row_data[index];
+
+                                            if (type == 'CheckBox')
+                                            {
+                             
+                                                var ck = td.find('input[type=&quot;checkbox&quot;]');
+                                                if (text == '1')
+                                                    ck.prop('checked', true);
+                                                else
+                                                    ck.prop('checked', false);
+                                            }
+                                            else
+                                            {
+                                                td.text(text);
+                                            }
+                                        }
+                                    });
+                                    cells.data(&quot;update&quot;, true);
+                                    ipt.change();
+
+                                }
+                            }
+
+                            if (DelTotal &gt; 0) {
+                                for (var i = 0; i &lt; DelTotal; i++) {
+                                    var row_data = myData[&quot;Del&quot;][i];
+                                    var trIID = row_data[&quot;trIID&quot;];
+                                    table.find(&quot;tr&quot;).each(function (idx,ele) {
+                                        var iid = $(ele).find(&quot;td&quot;).eq(trIIDIndex).html();
+                                        if ( iid== trIID)
+                                        {
+                                            $(this).css(&quot;display&quot;, &quot;none&quot;);
+                                            $(this).data(&quot;delete&quot;, true);
+                                            ipt.change();
+                                        }
+                                    });
+    
+                                }
+                            }
+                        
+
+                    }
+                });
+            }
+        }
+
+
+
+        //绑定change事件
+        allControl.each(function (i, el) {
+            var name = $(el).attr('name');
+            if (name) {
+                $(el).on('change', function () {
+                    onchange(this);
+                });
+            }
+        });
+
+        //保存修改的数据
+        function onchange(el) {
+            var storage = localStorage.getItem(id);
+            if (storage == null) {
+                formDataDb = new Object();
+                var key = $(el).attr(&quot;name&quot;);
+                var value = $(el).val();
+                formDataDb[key] = value;
+                localStorage.setItem(id, JSON.stringify(formDataDb));
+            } else {
+                var myData = JSON.parse(storage);
+                var key = $(el).attr(&quot;name&quot;);
+                var value = $(el).val();
+                myData[key] = value;
+                localStorage.setItem(id, JSON.stringify(myData));
+            }
+        }
+    };
+
+    //删除localStorage中的数据
+    function onsave(form) {
+        var fh = form_handler;
+        var p = fh.getParams(form);
+        var id = 'FORM_' + DCI.LoginUser.UserId + '_' + p.bimId + '_' + p.formId + '_' + p.iid;
+        localStorage.removeItem(id);
+
+
+        var allGrid = $(form).find(&quot;.form-table&quot;);
+        var formId = $(form).data(&quot;formid&quot;);
+        allGrid.each(function (index,element) {
+            var formName = $(element).find(&quot;input:hidden[data-formid]&quot;).attr(&quot;name&quot;);
+            var storageKey = &quot;FORM_&quot; + formId + &quot;_&quot; + formName;
+            localStorage.removeItem(storageKey);
+        });
+
+        localStorage.setItem(&quot;FORM_&quot; + formId + &quot;_isGridData&quot;, null);
+    }
+
+    function ongridadd(form, table, data, tr) {
+        var inputflag = table.closest(&quot;div .form-table&quot;).find(&quot;input:hidden[data-formid]&quot;)
+        var storageKey;
+        var formId = $(form).data(&quot;formid&quot;);;
+        localStorage.setItem(&quot;FORM_&quot; + formId + &quot;_isGridData&quot;, &quot;1&quot;);
+        var RowNumber = table.find(&quot;.active&quot;).children().eq(1).html();
+        var trIIDIndex;
+        var trIID;
+        table.find(&quot;col&quot;).each(function (idx, ele) {
+            if ($(ele).data(&quot;index&quot;) == &quot;IID&quot;) {
+                trIID = table.find(&quot;.active&quot;).children().eq(idx).html();
+                trIIDIndex = idx;
+            }
+        });
+        var InsertObj = { trIID: trIID, RowNumber: RowNumber };
+
+        var columnArr = table.children().find(&quot;[data-index]&quot;);
+        if (columnArr) {
+            columnArr.each(function (index, element) {
+                var flag = $(element).data(&quot;index&quot;);
+                InsertObj[flag] = data[flag];
+            }); 
+        }
+        
+        if (inputflag &amp;&amp; trIID)
+        {
+            storageKey = &quot;FORM_&quot; + formId + &quot;_&quot; + inputflag.attr(&quot;name&quot;);
+            //var mydata = &quot;{'Insert':[{'trIID':'1','ID':'test','IID':'测试'},{'trIID':'2','ID':'test2','IID':'测试2'}],'Update':[{'trIID':'3','ID':'test3','IID':'测试3'},{'trIID':'4','ID':'test4','IID':'测试4'}],'Del':[{'trIID':'1'},{'trIID':'2'}]}&quot;;
+
+            var getLocalStorage = localStorage.getItem(storageKey);
+            if (getLocalStorage) {
+
+                var dataObj = JSON.parse(getLocalStorage);
+                var InsertTotal = dataObj[&quot;Total&quot;][&quot;InsertTotal&quot;];
+ 
+                dataObj[&quot;Insert&quot;][InsertTotal] = InsertObj;
+                dataObj[&quot;Total&quot;][&quot;InsertTotal&quot;] = InsertTotal + 1;
+                localStorage.setItem(storageKey, JSON.stringify(dataObj));
+
+            } else
+            {
+                var mydata = { Total: { InsertTotal: 1, UpdateTotal: 0, DelTotal: 0 }, Insert: [InsertObj], Update: [], Del: [], Notes: { storageKey: storageKey }, trIIDIndex: { IID: trIIDIndex } };
+                localStorage.setItem(storageKey, JSON.stringify(mydata));
+            }
+        }
+
+    }
+
+    function ongridedit(form, table, data, tr) {
+       
+        var inputflag = table.closest(&quot;div .form-table&quot;).find(&quot;input:hidden[data-formid]&quot;)
+        var formId = $(form).data(&quot;formid&quot;);
+        var storageKey = &quot;FORM_&quot; + formId + &quot;_&quot; + inputflag.attr(&quot;name&quot;);
+        localStorage.setItem(&quot;FORM_&quot; + formId + &quot;_isGridData&quot;, &quot;1&quot;);
+        var mySourceData = {};
+        var trIIDIndex;
+        table.find(&quot;col&quot;).each(function (idx, ele)
+        {
+            var index = $(ele).data(&quot;index&quot;);
+            var type = $(ele).data(&quot;type&quot;);
+            if (index)
+            {
+                if (type == &quot;CheckBox&quot;)
+                {
+                    var val = table.find(&quot;.active&quot;).children().eq(idx).html();
+                    var value =$(val).val();
+                    mySourceData[index] = value;
+                }
+                else
+                {
+                    if (index == &quot;IID&quot;)
+                    {
+                        trIIDIndex = idx;
+                    }
+                    mySourceData[index] = table.find(&quot;.active&quot;).children().eq(idx).html();
+                }
+            }
+        });
+
+        var trIID = mySourceData[&quot;IID&quot;];
+        var UpdateObj = { trIID: trIID };
+        $.extend(UpdateObj, mySourceData);
+
+        var getLocalStorage = localStorage.getItem(storageKey);
+        if (getLocalStorage)
+        {
+            var dataObj = JSON.parse(getLocalStorage);
+            var InsertTotal = dataObj[&quot;Total&quot;][&quot;InsertTotal&quot;];
+            var UpdateTotal = dataObj[&quot;Total&quot;][&quot;UpdateTotal&quot;];
+
+
+
+            if (InsertTotal &gt; 0)//新增后在编辑
+            {
+                for (var i = 0; i &lt; InsertTotal; i++) {
+                    var row_data = dataObj[&quot;Insert&quot;][i];
+                    if (row_data[&quot;trIID&quot;] == trIID) {
+                        $.extend(dataObj[&quot;Insert&quot;][i], UpdateObj);
+                    }
+                }
+            }
+
+            if (UpdateTotal &gt; 0)//编辑之后在编辑
+            {
+                for (var i = 0; i &lt; UpdateTotal; i++) {
+                    var row_data = dataObj[&quot;Update&quot;][i];
+                    if (row_data[&quot;trIID&quot;] == trIID) {
+                        $.extend(dataObj[&quot;Update&quot;][i], UpdateObj);
+                    }
+                }
+            }
+  
+            var UpdateTotal = dataObj[&quot;Total&quot;][&quot;UpdateTotal&quot;];
+            dataObj[&quot;Update&quot;][UpdateTotal] = UpdateObj;
+            dataObj[&quot;Total&quot;][&quot;UpdateTotal&quot;] = UpdateTotal + 1;
+      
+
+            localStorage.setItem(storageKey, JSON.stringify(dataObj));
+        }
+        else
+        {
+
+            var mydata = { Total: { InsertTotal: 0, UpdateTotal: 1, DelTotal: 0 }, Insert: [], Update: [UpdateObj], Del: [], Notes: { storageKey: storageKey }, trIIDIndex: { IID: trIIDIndex } };
+            localStorage.setItem(storageKey, JSON.stringify(mydata));
+        }
+
+
+        var testdata = localStorage.getItem(storageKey);
+        var myData = JSON.parse(testdata);
+        if (testdata != null) {
+            alert(testdata);
+            //alert(mydata);
+            //alert(myData[&quot;Total&quot;][&quot;InsertTotal&quot;]);
+            //alert(myData[&quot;Insert&quot;][0][&quot;ID&quot;]);
+        }
+    }
+
+    function ongriddel(form, table, tr) {
+        var inputflag = table.closest(&quot;div .form-table&quot;).find(&quot;input:hidden[data-formid]&quot;)
+        var formId = $(form).data(&quot;formid&quot;);
+        var storageKey = &quot;FORM_&quot; + formId + &quot;_&quot; + inputflag.attr(&quot;name&quot;);;
+        localStorage.setItem(&quot;FORM_&quot; + formId + &quot;_isGridData&quot;, &quot;1&quot;);
+        var trIIDIndex;
+        var trIID;
+        table.find(&quot;col&quot;).each(function (idx, ele) {
+            if ($(ele).data(&quot;index&quot;) == &quot;IID&quot;)
+            {
+                trIIDIndex = idx;
+                trIID = tr.find(&quot;td&quot;).eq(idx).html();
+            }
+        });
+
+        var DelObj = { trIID: trIID };
+
+        var getLocalStorage = localStorage.getItem(storageKey);
+        if (getLocalStorage) {
+
+            var dataObj = JSON.parse(getLocalStorage);
+            var isInsertData = false;
+            var isUpdateDel = false;
+            var InsertTotal = dataObj[&quot;Total&quot;][&quot;InsertTotal&quot;];
+            var DelTotal = dataObj[&quot;Total&quot;][&quot;DelTotal&quot;];
+            var UpdateTotal = dataObj[&quot;Total&quot;][&quot;UpdateTotal&quot;];
+            
+
+            if (InsertTotal &gt; 0) {
+
+                for (var i = 0; i &lt; InsertTotal; i++) {
+                    var row_data = dataObj[&quot;Insert&quot;][i];
+                    if (row_data[&quot;trIID&quot;] == trIID) {
+                        isInsertData = true;
+                        dataObj[&quot;Insert&quot;][i] = null;
+                    }
+                }
+            }
+
+            if (UpdateTotal&gt;0)
+            {
+                for (var i = 0; i &lt; UpdateTotal; i++) {
+                    var row_data = dataObj[&quot;Update&quot;][i];
+                    if (row_data[&quot;trIID&quot;] == trIID) {
+                        isUpdateDel = true;
+                        dataObj[&quot;Update&quot;][i] = null;
+                    }
+                }
+            }
+
+
+            if (isInsertData)
+            {
+                var tempArr = [];
+                for (var i = 0; i &lt; InsertTotal; i++) {
+                    if (dataObj[&quot;Insert&quot;][i] != null) {
+                        tempArr[i]=dataObj[&quot;Insert&quot;][i];
+                    }
+                }
+
+                dataObj[&quot;Insert&quot;] = tempArr;
+                dataObj[&quot;Total&quot;][&quot;InsertTotal&quot;] = InsertTotal - 1;
+            }
+            else
+            {
+
+                if (isUpdateDel)
+                {
+                    var tempArr = [];
+                    for (var i = 0; i &lt; InsertTotal; i++) {
+                        if (dataObj[&quot;Update&quot;][i] != null) {
+                            tempArr[i] = dataObj[&quot;Update&quot;][i];
+                        }
+                    }
+
+                    dataObj[&quot;Update&quot;] = tempArr;
+                    dataObj[&quot;Total&quot;][&quot;UpdateTotal&quot;] = UpdateTotal - 1;
+
+                } 
+                
+                dataObj[&quot;Del&quot;][DelTotal] = DelObj;
+                dataObj[&quot;Total&quot;][&quot;DelTotal&quot;] = DelTotal + 1;
+                
+            }
+
+            localStorage.setItem(storageKey, JSON.stringify(dataObj));
+            if (dataObj[&quot;Total&quot;][&quot;InsertTotal&quot;] == 0 &amp;&amp; dataObj[&quot;Total&quot;][&quot;UpdateTotal&quot;] == 0 &amp;&amp; dataObj[&quot;Total&quot;][&quot;DelTotal&quot;] == 0)
+            {
+                localStorage.setItem(&quot;FORM_&quot; + formId + &quot;_isGridData&quot;, null);
+            }
+
+
+        } else
+        {
+            var mydata = { Total: { InsertTotal: 0, UpdateTotal: 0, DelTotal: 1 }, Insert: [], Update: [], Del: [DelObj], Notes: { storageKey: storageKey }, trIIDIndex: { IID: trIIDIndex } };
+            localStorage.setItem(storageKey, JSON.stringify(mydata));
+        }
+
+    }
+
+    return {
+        onload: onload,
+        onsave: onsave,
+        ongridadd: ongridadd,
+        ongridedit: ongridedit,
+        ongriddel: ongriddel
+    }
+});</pre>
+</div>
+<p>以上就是本文的全部内容，希望对大家的学习有所帮助，也希望大家多多支持脚本之家。</p>
+
+</div><!--endmain-->
+<div class="lbd clearfix">
+<span id="art_down" class="jbTestPos"></span>
+</div>
+<div id="shoucang">
+
+</div>
+<div class="tags mt10">
+Tag：<b><a href='/do/tag/localStorage/' target='_blank'>localStorage</a></b> &nbsp; <b><a href='/do/tag/HTML5/' target='_blank'>HTML5</a></b> &nbsp; 
+</div>
+<DIV class="relatedarticle clearfix mt5">
+<H2>相关文章</H2>
+<ul>
+<li><span>2016-09-20</span><a href="/html5/495414.html" target="_blank">html5本地存储 localStorage操作使用详解</a></li><li><span>2016-06-24</span><a href="/html5/471524.html" target="_blank">HTML5 本地存储 LocalStorage详解</a></li><li><span>2016-03-23</span><a href="/jiaoben/443578.html" target="_blank">HTML5实现的本地缓存localstorage登录效果实例代码</a></li><li><span>2016-03-01</span><a href="/html5/435192.html" target="_blank">解析HTML5中的新功能本地存储localStorage</a></li><li><span>2015-07-09</span><a href="/html5/354335.html" target="_blank">HTML5中Localstorage的使用教程</a></li><li><span>2014-05-08</span><a href="/html5/163365.html" target="_blank">html5本地存储之localstorage 、本地数据库、sessionStorage简单使用示</a></li><li><span>2014-05-08</span><a href="/html5/163280.html" target="_blank">HTML5本地存储localStorage、sessionStorage基本用法、遍历操作、异常</a></li><li><span>2014-03-18</span><a href="/html5/144597.html" target="_blank">HTMl5的存储方式sessionStorage和localStorage详解</a></li><li><span>2012-12-09</span><a href="/html5/67466.html" target="_blank">HTML5 Web存储方式的localStorage和sessionStorage进行数据本地存储案</a></li><li><span>2017-02-13</span><a href="/html5/533279.html" target="_blank">Html5中localStorage存储JSON数据并读取JSON数据的实现方法</a></li>
+</ul>
+</DIV>
+<div class="lbd clearfix mt5">
+<span id="art_down2" class="jbTestPos"></span>
+</div>
+<a href="#comments"></a>
+<DIV id="comments">
+<H2>最新评论</H2>
+<div class="pd5"><div id="SOHUCS" sid="521131"></div></div>
+</div>
+      </div><!--endborder-->
+      </div><!--end fl-->
+      
+<div class="w300 fr">
+<div class="r300 clearfix"><span id="r1gg" class="jbTestPos"></span></div>
+<div class="subcate bord mt10">
+                        	<div class="asidetit cl">
+                            	<h3>文章分类</h3>
+                            </div>
+                            <div class="subcatec">
+                            	<ul>
+
+                                    <li><i></i><a href="/web/list220_1.html" target="_blank">HTML/Xhtml</a></li>
+
+                                    <li><i></i><a href="/html5/" target="_blank">html5</a></li>
+
+                                    <li><i></i><a href="/css/" target="_blank">CSS</a></li>
+
+                                    <li><i></i><a href="/xml/" target="_blank">XML/XSLT</a></li>
+
+                                    <li><i></i><a href="/Dreamweaver/" target="_blank">Dreamweaver教程</a></li>
+
+                                    <li><i></i><a href="/frontpage/" target="_blank">Frontpage教程</a></li>
+
+                                    <li><i></i><a href="/web/list225_1.html" target="_blank">心得技巧</a></li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+<div class="r300 clearfix mt10"><span id="idctu" class="jbTestPos"></span></div>                        
+<DIV class="tabTitleBar mt10 bgf borderTblue">
+<DIV class="borderTnone pb10 YaHei">
+<H4 class="blue">大家感兴趣的内容</H4>
+<UL class="newsList newList-in">
+<li><em class="no1">1</em><a href="/html5/90911.html" target="_blank">css 如何让背景图片拉伸填充避免重复显示</a></li><li><em class="no2">2</em><a href="/html5/80728.html" target="_blank">基于第一个PhoneGap(cordova)的应用详解 </a></li><li><em class="no3">3</em><a href="/html5/171764.html" target="_blank">HTML5 input placeholder 颜色修改示例</a></li><li><em class="no4">4</em><a href="/html5/83401.html" target="_blank">将HTML5 Canvas的内容保存为图片借助toDataURL实现</a></li><li><em class="no5">5</em><a href="/html5/22826.html" target="_blank">让IE支持HTML5的方法</a></li><li><em class="no6">6</em><a href="/html5/208408.html" target="_blank">html5定位获取当前位置并在百度地图上显示</a></li><li><em class="no7">7</em><a href="/html5/86236.html" target="_blank">HTML5中如何显示视频呢 HTML5视频播放demo</a></li><li><em class="no8">8</em><a href="/html5/65058.html" target="_blank">HTML5教程之html 5 本地数据库（Web Sql Database）</a></li><li><em class="no9">9</em><a href="/html5/305283.html" target="_blank">微信浏览器取消缓存的方法</a></li><li><em class="no10">10</em><a href="/html5/114615.html" target="_blank">html5 的a标签 Href 拨电话的写法</a></li>
+</UL>
+</DIV>
+</DIV>
+<div class="r300 clearfix mt10"><span id="idctu1" class="jbTestPos"></span></div>
+<DIV class="tabTitleBar mt10 bgf borderTblue">
+<DIV class="borderTnone pb10 YaHei">
+<H4 class="blue">最近更新的内容</H4>
+<UL class="newsListA">
+<li><a href="/html5/533545.html" target="_blank">HTML5 虚拟键盘出现挡住输入框的解决办法</a></li><li><a href="/html5/533279.html" target="_blank">Html5中localStorage存储JSON数据并读取JSON数据的实</a></li><li><a href="/html5/531313.html" target="_blank">HTML5为输入框添加语音输入功能的实现方法</a></li><li><a href="/html5/526080.html" target="_blank">HTML5实现表单自动验证功能实例代码</a></li><li><a href="/html5/526002.html" target="_blank">HTML5拖拉上传文件的简单实例</a></li><li><a href="/html5/525482.html" target="_blank">如何用H5实现一个触屏版的轮播器的实例</a></li><li><a href="/html5/524678.html" target="_blank">HTML5+CSS3模仿优酷视频截图功能示例</a></li><li><a href="/html5/524664.html" target="_blank">HTML5+CSS3实现无插件拖拽上传图片（支持预览与批量）</a></li><li><a href="/html5/524198.html" target="_blank">HTML5实现文件断点续传的方法</a></li><li><a href="/html5/524001.html" target="_blank">HTML5+css3：3D旋转木马效果相册</a></li>
+</UL>
+</DIV>
+</DIV>
+<DIV class="r300 clearfix mt10">
+<span id="bd200" class="jbTestPos"></span>
+</DIV>
+<div class="r300 clearfix mt10"><span id="idctu2" class="jbTestPos"></span></div>
+<div class="mt10 rFixedBox">
+<span id="r_2" class="jbTestPos"></span>
+</div>
+      
+      
+      </div><!--end fr-->
+      </div>
+</div><!--end content-->
+<div id="footer">
+<div class="main clearfix">
+<p>
+<a href="http://www.jb51.net/about.htm" target="_blank">关于我们</a> - 
+<a href="http://www.jb51.net/support.htm" target="_blank">广告合作</a> - 
+<a href="http://www.jb51.net/linkus.htm" target="_blank">联系我们</a> -  
+<a href="http://www.jb51.net/sm.htm" target="_blank">免责声明</a> -  
+<a href="http://www.jb51.net/sitemap.htm" target="_blank">网站地图</a> - 
+<a href="tencent://message/?uin=461478385&Site=http://www.jb51.net" target="_blank">投诉建议</a> - 
+<a href="http://www.jb51.net/up.htm" target="_blank">在线投稿</a>
+</p>
+<p>&copy;CopyRight 2006-2016 JB51.Net Inc All Rights Reserved. 脚本之家 版权所有</p>
+</div>
+</div><!--end footer-->
+<link type="text/css" rel="stylesheet" href="/jslib/syntaxhighlighter/styles/shCore.css" />
+<link type="text/css" rel="Stylesheet" href="/jslib/syntaxhighlighter/styles/shThemeDefault.css" />
+<script type="text/javascript" src="/jslib/syntaxhighlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="/jslib/syntaxhighlighter/scripts/shAutoloader.js"></script>
+<script type="text/javascript"> 
+if (top.location != self.location)top.location=self.location;
+$('#content').find('img').each(function(){
+        var img = this;
+        if (img.width >= 650){
+            img.style.width = "650px";
+            img.style.height = "auto";
+            //$(img).removeAttr('height');
+            var aTag = document.createElement('a');
+            aTag.href = img.src;
+			aTag.target="_blank";
+            $(aTag).addClass('bPic')
+            .insertAfter(img).append(img)
+          }
+    });
+ $(window).scroll(function()
+    {	
+    	//rFixedBox跟随滚动
+    	var h = $(window).height();
+        var top = $(window).scrollTop();
+    	var rFixedBox = $('.rFixedBox').prev().offset();
+        var fixedTop = rFixedBox.top;
+		
+        if(top>=fixedTop+344)
+        {
+			var h1 = parseInt($('#content').children('.main').height());
+			if(parseInt(top) + 340 < h1){
+				$('.rFixedBox').css({'position':'fixed','top': 0});
+			}else{
+				$('.rFixedBox').css({'position':'absolute','top': h1-510});
+			}
+        }
+        else
+        {
+            $('.rFixedBox').css({'position':'static', 'top':0});   
+        }	
+       /* return true;*/
+    });
+SyntaxHighlighter.autoloader(
+	'applescript			/jslib/syntaxhighlighter/scripts/shBrushAppleScript.js',
+	'actionscript3 as3		/jslib/syntaxhighlighter/scripts/shBrushAS3.js',
+	'bash shell				/jslib/syntaxhighlighter/scripts/shBrushBash.js',
+	'coldfusion cf			/jslib/syntaxhighlighter/scripts/shBrushColdFusion.js',
+	'cpp c					/jslib/syntaxhighlighter/scripts/shBrushCpp.js',
+	'obj-c objc				/jslib/syntaxhighlighter/scripts/shBrushObjC.js',
+	'c# c-sharp csharp		/jslib/syntaxhighlighter/scripts/shBrushCSharp.js',
+	'css					/jslib/syntaxhighlighter/scripts/shBrushCss.js',
+	'delphi pascal			/jslib/syntaxhighlighter/scripts/shBrushDelphi.js',
+	'diff patch pas			/jslib/syntaxhighlighter/scripts/shBrushDiff.js',
+	'erl erlang				/jslib/syntaxhighlighter/scripts/shBrushErlang.js',
+	'groovy					/jslib/syntaxhighlighter/scripts/shBrushGroovy.js',
+	'haxe hx				/jslib/syntaxhighlighter/scripts/shBrushHaxe.js',
+	'java					/jslib/syntaxhighlighter/scripts/shBrushJava.js',
+	'jfx javafx				/jslib/syntaxhighlighter/scripts/shBrushJavaFX.js',
+	'js jscript javascript	/jslib/syntaxhighlighter/scripts/shBrushJScript.js',
+	'perl pl				/jslib/syntaxhighlighter/scripts/shBrushPerl.js',
+	'php					/jslib/syntaxhighlighter/scripts/shBrushPhp.js',
+	'text plain				/jslib/syntaxhighlighter/scripts/shBrushPlain.js',
+	'py python				/jslib/syntaxhighlighter/scripts/shBrushPython.js',
+	'ruby rails ror rb		/jslib/syntaxhighlighter/scripts/shBrushRuby.js',
+	'scala					/jslib/syntaxhighlighter/scripts/shBrushScala.js',
+	'sql					/jslib/syntaxhighlighter/scripts/shBrushSql.js',
+	'vb vbnet				/jslib/syntaxhighlighter/scripts/shBrushVb.js',
+	'ps powershell			/jslib/syntaxhighlighter/scripts/shBrushPowerShell.js',
+	'xml xhtml xslt html	/jslib/syntaxhighlighter/scripts/shBrushXml.js'
+);
+SyntaxHighlighter.all();	
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script type="text/javascript" src="http://common.jb51.net/js/jbLoader.js"></script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<div id="tongji">
+<script type="text/javascript" src="http://common.jb51.net/inc/tongji2.js"></script>
+<script src="/do/plus/count.php?aid=521131&mid=" language="javascript" type="text/javascript"></script>
+</div>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cyrHH3dwi',
+conf: 'prod_1dc5dc80970106099d43fe242b7465fc'
+});
+</script>
+</body>
+</html>
+</script>

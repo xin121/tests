@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		/*改变鼠标选中背景颜色*/
+			::-moz-selection{background:#999; color:#FCF;}
+			::selection {background:#999; color:#FCF;} 
+		</style>
+	</head>
+	<body>
+		
+		1,内联模型onclick
+		2，脚本模型<script></script>
+		<!--<input type="button" value="按钮" onclick="box();" />-->
+		<input type="button" value="按钮" />
+	</body>
+</html>
+<script>
+//放在匿名函数里面是找不到的
+//window.onload = function (){
+//	function box(){
+//		alert("kk");
+//	}
+//}
+	//脚本模型
+	window.onload = function(){
+		var input = document.getElementsByTagName('input')[0];
+		input.ondblclick = function(){
+			alert('ll');
+		}
+	}
+	window.onscroll = function(){
+		
+	}
+	//有些事件只能用在规定的元素上边；
+   //事件对象
+   document.onclick = function(){
+// 	alert(this);
+   }
+   function box(a,b){
+   	//事件处理函数绑定的函数，浏览器会默认的有一个参数，鼠标事件对象
+   	
+   }
+</script>

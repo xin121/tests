@@ -1,0 +1,177 @@
+@charset "utf-8";
+@import url("new_file");
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{
+	margin:0;
+	padding:0;
+	border:0;
+	color:#666;
+}
+ul,li{
+	list-style: none;
+}
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  display: block;
+}
+
+
+a {
+	text-decoration: none;
+}
+input[type=number]::-webkit-inner-spin-button,  
+input[type=number]::-webkit-outer-spin-button {  
+    -webkit-appearance: none;  
+    margin: 0;  
+}  
+input::-ms-reveal{
+	display:none;
+}
+input::-ms-clear{display:none;}
+input:focus {outline: none; background: none;}
+input,button{outline:none;
+background: none;
+} 
+input:-webkit-autofill {
+-webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+a:hover{
+	text-decoration: none;
+	 cursor: pointer;
+}
+a:focus{
+text-decoration: none;
+outline: none;
+}
+select:focus{
+	outline: none;
+	border: none;
+	background: none;
+}
+input[type="button"] {cursor:pointer;}
+button,input,select,textarea {margin:0; padding:0; outline:none; vertical-align:middle;}
+button {cursor:pointer;}
+input[type="radio"],input[type="checkbox"] {position:relative; top:-2px; margin-right:5px;}
+input,textarea:focus {outline: none;}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix:after {
+  clear: both;
+}
+.Left{
+	float: left;
+}
+
+.Right{
+	float: right;
+}
+.hidden{
+	display: none;
+}
+.show{
+	display: block;
+}
+/*按钮鼠标移入事件*/
+@-webkit-keyframes hvr-push {
+  50% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes hvr-push {
+  50% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.hvr-push {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+}
+.hvr-push:hover, .hvr-push:focus, .hvr-push:active {
+  -webkit-animation-name: hvr-push;
+  animation-name: hvr-push;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+
+
+
+/*三角*/
+.iconA{
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid #000;
+	position: absolute;
+	top: 13px;
+	right: 8px;
+	
+}
+/*强制不换行，多余显示...*/
+.ellipsis {
+	overflow:hidden; 
+	white-space:nowrap; 
+	text-overflow:ellipsis;
+}
+/*去掉搜狗浏览器下input密码右侧软键盘*/
+input::-webkit-input-safebox-button {
+    display: none;
+}
+/*火狐浏览器，buttn input 垂直居中*/
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner{
+	border:none;padding:0;
+}

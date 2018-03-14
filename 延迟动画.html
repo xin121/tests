@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		button { font-size: 20px; }
+
+		.grid {
+		  width: 125px;
+		  background: #DDD;
+		  height: 125px;
+		  float: left;
+		  margin-right: 20px;
+		}
+		
+		.grid-item {
+		  width: 20px;
+		  height: 20px;
+		  margin: 0 5px 5px 0;
+		  background: #09F;
+		  float: left;
+		  transition: transform 0.4s;
+		}
+		
+		.grid-item.is-moved {
+		  transform: translateX(145px);
+		}
+		
+		.tran{
+			animation: ;
+		}
+	</style>
+	<body>
+		<p><button class="move-button">Move items</button></p>
+
+		<div class="grid grid-a">
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		  <div class="grid-item"></div>
+		</div>
+		
+		<div class="grid"></div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+<script>
+	var moveButton = document.querySelector('.move-button');
+	var items = document.querySelectorAll('.grid-a .grid-item');
+	var isMoved = false;
+	
+	moveButton.onclick = function() {
+	  // toggle flag
+	  isMoved = !isMoved;
+	
+	  for ( var i=0; i < items.length; i++ ) {
+	    // get function in closure, so i can iterate
+	    var toggleItemMove = getToggleItemMove( i );
+	    // stagger transition with setTimeout
+	    setTimeout( toggleItemMove, i * 50 );
+	  }
+	};
+	
+	function getToggleItemMove( i ) {
+	  var item = items[i];
+	  return function() {
+	    item.classList.toggle('is-moved');
+	  }
+	}
+</script>

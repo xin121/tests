@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.12.0.min.js" ></script>
+<script>
+//map
+	var aMap = $.map([1,2,4],function(n){
+		return [n,n+1];
+	})
+	console.log(aMap);
+	//inArray判断在数组的什么位置
+	var arr = [1,2,4,3,5,6]
+	var arrRel = $.inArray(5,arr);
+	console.log(arrRel)
+	//toArray 把集合中所有的dom元素回复成数组
+	//merge合并两个数组
+	var arr1 = ['ww','jj','ll'];
+	var addAer = $.merge(arr,arr1);
+	console.log(addAer);
+	//unique 删除数组中的重复元素
+	var delArr = $.unique(aMap);
+	console.log(delArr);
+	//uniqueSort 通过搜索数组对象，排序数组
+	var arr2 = [1,2,4,4,3,5,6]
+	var sortArr = $.uniqueSort(arr2);
+	console.log(sortArr);
+	//工具介绍完毕
+	//proxy返回一个新函数，改变作用域
+	var obj = {
+		name:"ttt",
+		test:function(){
+			console.log(this.name);
+			
+		}
+	}
+	obj.test();
+	//contains 判断一个节点是否包含另一个节点
+//	$.contains(aontainer,contained),第一个参数，作为容器，第二个参数，可能包含的节点，返回false,true;
+//type 检测obj的数据类型，typeof
+// isArray 检测对象是否为数组；isFunction 检测对象是否为函数； isEmptyObject 判断是否为空对象，为空返回true；isWindow判断是否为窗口对象；isNumeric判断是否为数字
+//trim 去掉字符串开始和结尾的空格
+
+</script>

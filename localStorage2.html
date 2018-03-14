@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>
+<script type="text/javascript" src="boortStrap/js/jquery-1.12.0.min.js" ></script>
+<script>
+var aStr = JSON.parse(localStorage['aName']);
+var strHtml='';
+
+	for(var i=0 ; i<aStr.length;i++){
+//		for( x in aStr){
+		strHtml += '<p>'+aStr[i]+'</p>';
+//	}
+	
+}
+$("div").html(strHtml);
+//	console.info(localStorage['aName']);
+//console.info(localStorage.getItem('location.href'));
+</script>

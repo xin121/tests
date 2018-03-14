@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul{
+				width: 500px;
+				    height: 500px;
+				transform-style: preserve-3d;
+    			animation: hxz 20s linear infinite;
+    			
+    		
+			}
+			ul li{
+				    width: 500px;
+				    height: 500px;
+				    border: 10px solid #5ec0ff;
+				    border-radius: 1000px;
+				    position: absolute;
+				    list-style: none;
+				    left: 0;
+				    top: 0;
+			}
+			@keyframes hxz{
+				0%{
+					transform: rotateX(0deg);
+				}
+				100%{
+					transform: rotateX(360deg);
+				}
+			}
+			.a{
+				
+			}
+			.b{
+				transform: rotateX(60deg) rotateZ(60deg);
+			}
+			.c{
+				transform: rotateX(-60deg) rotateZ(-60deg);
+			}
+			div{
+				top: 50%;
+			    left: 50%;
+			    width: 500px;
+			    height: 500px;
+			    transform-style: preserve-3d;
+			    transform: translate(50%, 50%) rotateY(75deg);
+			}
+			/*span{
+				display: block;
+				height: 2px;
+				width: 100px;
+				background: red;
+				animation: hx 4s linear infinite;
+				background-size: 100% 100%;
+			}
+			@keyframes hx{
+				100%{
+					transform: rotate(360deg);
+				}
+			}*/
+		</style>
+		
+	</head>
+	<body>
+		<div>
+			<ul>
+			<li class="a">
+				<span></span>
+			</li>
+			<li class="b">
+				<span></span>
+			</li>
+			<li class="c">
+				<span></span>
+			</li>
+		</ul>
+		</div>
+		
+	</body>
+</html>

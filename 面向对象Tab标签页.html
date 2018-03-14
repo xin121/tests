@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1 input{
+				background: white;
+			}
+			#div1 input.active{
+				background: yellow;
+			}
+			#div1 div{
+				width: 200px;
+				height: 200px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<input class="active" type="button" value="aa" />
+			<input type="button" value="bb" />
+			<input type="button" value="ccc" />
+			<div style="display: block;">sss</div>
+			<div>ssss</div>
+			<div>ss</div>
+		</div>
+		
+	</body>
+</html>
+<script type="text/javascript" src="angular/js/jquery-1.12.0.min.js" ></script>
+<script>
+window.onload = function(){
+	new tab('div1');
+}
+//	function tab(id){
+//		var _this = this;
+//		
+//		var oDiv = document.getElementById(id);
+//		 this.aBtn = oDiv.getElementsByTagName('input');
+//		 this.aDiv = oDiv.getElementsByTagName('div');
+//		for(var i=0;i< this.aBtn.length;i++){
+//			console.log(this);
+//			 this.aBtn[i].index = i;
+//			 this.aBtn[i].onclick = function(){
+//			 	_this.click(this);
+//			 }
+//		}
+//	}
+//	tab.prototype.click=function(oBtn){
+//		for (var i= 0;i<this.aBtn.length;i++) {
+//			 this.aBtn[i].className='';
+//			 this.aDiv[i].style.display = 'none';
+//		}
+//		oBtn.className = 'active';
+//		this.aDiv[oBtn.index].style.display = 'block';
+//	}
+function tab(id){
+	var _this = this;
+	var oDiv = $(id);
+	this.aBtn = oDiv.children('input');
+	this.aDiv = oDiv.children('div');	
+	console.log(this.aBtn);
+	for(var i = 0;i < this.aBtn.length;i++){
+		this.aBtn[i].index = i;
+		this.aBtn[i].onclick = function(){
+	
+			_this.click(this);
+		}
+	}
+}
+tab.prototype.click = function(oBtn){
+	for(var i = 0;i<aBtn.length;i++){
+		this.aBtn[i].className = ''
+		this.aDiv[i].style.display = 'none';
+	}
+	console.log(oBtn)
+	oBtn.className = 'active';
+	this.aDiv[oBtn.index].style.display = 'block';
+}
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/jquery-ui.min.css" />
+		 <style>
+  #progressbar {
+    width: 100px;
+    height: 100px;
+    background: #ccc;
+  }
+  </style>
+	</head>
+	<body>
+		<div id="progressbar" class="ui-corner-tl"></div>
+		<div class="ui-widget-shadow">
+			dsssd
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+<script type="text/javascript" src="js/jquery-ui.min.js" ></script>
+<script>
+	$(function() {
+	   $(document).click(function(){
+	   	$("#progressbar").toggle("blind");
+	   })
+	  });
+</script>

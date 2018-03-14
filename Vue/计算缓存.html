@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="example">
+			<p>{{reversedMessage()}}</p>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="../js/vue.min.js" ></script>
+<script>
+	
+
+	var vm = new Vue({
+		el:'#example',
+		data:{
+			message:'Hello'
+		},
+		computed:{
+			now:function(){
+				return Date.now()
+			}
+		},
+	//计算缓存 
+		methods:{
+			reversedMessage:function () {
+				return this.message.split('').reverse().join('')
+			}
+		}
+		
+	})
+	console.log(vm.now);
+	
+	
+</script>

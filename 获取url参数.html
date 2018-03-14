@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.12.0.min.js" ></script>
+<script>
+//获取url参数
+	function GetUrlParam(name) {
+	    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); //构造一个含有目标参数的正则表达式对象
+	    var r = window.location.search.substr(1).match(reg); //匹配目标参数
+	    if (r != null) return unescape(r[2]);
+	    return null; //返回参数值
+	}
+	//将url参数以对象形式返回
+	var readUrlToParams = function () {
+		var url = location.href;
+		var nameValue;
+		var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+		var paraObj = {};
+		for (var i = 0; nameValue = paraString[i]; i++) {
+			var name = nameValue.substring(0, nameValue.indexOf("=")).toLowerCase();
+			var value = nameValue.substring(nameValue.indexOf("=") + 1, nameValue.length);
+		if (value.indexOf("#") > -1) {
+			value = value.split("#")[0];
+			
+		}
+			paraObj[name] = value;
+		}
+		return paraObj;
+	};
+	console.log(readUrlToParams());
+	readUrlToParams();
+	//
+	function parseQueryString(url){
+        var obj={};
+        var keyvalue=[];
+        var key="",value="";       
+        var paraString=url.substring(url.indexOf("?")+1,url.length).split("&");
+        for(var i in paraString)
+        {
+            keyvalue=paraString[i].split("=");
+            key=keyvalue[0];
+            value=keyvalue[1];
+            obj[key]=value;            
+        }        
+        return obj;
+    }
+	function parseQuery(url){
+		var obj = {};
+		var keyvalue = [];
+		var key = '',value = '';
+		var paraString = url.substring(url.indexOf('?')+1,url.length).split('&');
+		for(var i in paraString);{
+			keyvalue = paraString[i].split("=");
+			key = keyvalue[0];
+			value = keyvalue[1];
+			obj[key] = value;
+		}
+		return obj;
+	}
+	$('button').click(function(){
+		$('p').toggleClass('blue');
+	})
+</script>

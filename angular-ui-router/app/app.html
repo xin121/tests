@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+			<ul style="float: left;">
+				<li ng-repeat="x in ids">
+					<a ui-sref="app.list({id:{{x.id}}})">{{x.name}}</a>
+				</li>
+			</ul>
+			<div ui-view class=""style="float: left;"></div>
+		
+	</body>
+</html>

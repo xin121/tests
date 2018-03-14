@@ -1,0 +1,4 @@
+@import url("new_file.scss");
+div li {
+	color: red;
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-app="myApp">
+		<div ng-controller="myCtrl">
+			<p>{{x1}}</p>
+			<p>{{x2}}</p>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/angular.min.js" ></script>
+<script>
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.x1 = "josn";
+		$scope.x2 = angular.isNumber($scope.x1);
+	})
+	
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/layer.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/layer.js" ></script>
+	</head>
+	<body>
+		<div style="height: 800px;">
+		<p>新页面</p>
+		
+		<div class="chen"><button class="clic">父页面传值</button>
+		</div>
+		<button>页面传值</button>
+		<button>父传值</button>
+		</div>
+		<!--<INPUT id="button1" type="button" value="返回真" name="button1" onclick="trans(1)">
+		<INPUT id="button2" type="button" value="返回假" name="button2" onclick="trans(0)">-->
+	</body>
+</html>
+<script>
+var len = parent.$('.img').length;
+var i;
+	$('.chen').on('click', function(){
+			parent.$('.img').append($(this).html());
+		
+	    
+//	    parent.layer.tips('Look here', 'button', {time: 5000});
+//	    parent.layer.close(index);
+	});
+function trans(tag){
+//	if(tag==0){
+//		window.returnValue=false;
+//	}else{
+//		window.returnValue = true;
+//	}
+//	window.close();
+	
+}
+</script>

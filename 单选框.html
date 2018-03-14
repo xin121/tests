@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+  	
+  </style>
+  <script type="text/javascript">
+	function checkRadio() {
+		var inputs = document.getElementsByTagName('input');
+		var checked = [];
+		for (var i = 0; i < inputs.length; i++) {
+			if (inputs[i].type === 'radio' && inputs[i].checked) {
+				checked.push(i + 1);
+			}
+		}
+		alert(checked + ' checked');
+	}
+  </script>
+ </head>
+ <body>
+  <input type="radio" /><br>
+  <input type="radio" /><br>
+  <input type="radio" /><br>
+  <input type="button" onclick="checkRadio()" value="check" />
+ </body>
+</html>

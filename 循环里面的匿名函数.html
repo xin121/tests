@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function box(){
+		var arr = [];
+		for(var i = 0;i<5; i++){
+			arr[i] = (function(num){
+				return function(){
+					return num;
+				}
+				return num;
+			})(i);//自我执行
+		}
+		return arr
+	}
+	var b = box();
+	
+</script>
+<script>
+	//构造方法传值
+	function Box(sue){
+		var user = sue;
+		this.getUser = function (){
+			return user
+		}
+	}
+	var box = new Box("lee");
+	box.getUser();
+</script>
+<script>
+	(function(){
+		var user = '';
+		Box = function(val){
+			user = val;
+			
+		}
+		Box.prototype.getUser = function(){
+			return user;
+		}
+	})()
+	var box = new Box('lee');
+	box.getUser();
+</script>
+<script>
+//	var box = function 
+</script>

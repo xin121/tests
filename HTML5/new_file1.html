@@ -1,0 +1,79 @@
+<!DOCTYPE >
+<html>
+<head>
+<title>Ajax Hello World</title>
+<script type="text/javascript">
+var xmlHttp;
+ 
+function createXMLHttpRequest(){
+if(window.ActiveXObject){
+xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+}
+else if(window.XMLHttpRequest){
+xmlHttp = new XMLHttpRequest();
+}
+}
+ 
+function startRequest(){
+createXMLHttpRequest();
+try{
+xmlHttp.onreadystatechange = handleStateChange;
+xmlHttp.open("GET", "dataPointXML1.xml", true);
+xmlHttp.send(null);  
+}catch(exception){
+alert("can't get xmlrequest data!");
+}
+}
+ 
+function handleStateChange(){ 
+    if(xmlHttp.readyState == 4){ 
+        if (xmlHttp.status == 200 || xmlHttp.status == 0){
+            // 取得XML的DOM对象
+            var xmlDOM = xmlHttp.responseXML;
+            // 取得XML文档的根
+            var x = xmlDOM.documentElement; 
+            try{
+                // 取得<STROKE>结果
+                var STROKE = x.getElementsByTagName('STROKE');
+     
+                var c=document.getElementById("myCanvas");
+                var cxt=c.getContext("2d");
+                    cxt.beginPath();
+                    cxt.lineWidth = 3;
+                    cxt.lineJoin = 'round';
+                for(j=0;j<STROKE.length;j++){
+                    /*for(k=0;k<10;k++){
+                        var countTime=k;
+                        var firstTime=STROKE[i].children[0].textContent;
+                        //var nextTime=STROKE[j].children[0].textContent;
+                        var nextTime=firstTime+countTime;
+                    }*/
+                    var points=STROKE[j];   
+                    cxt.moveTo(parseInt(STROKE[j].children[1].children[0].textContent),parseInt(STROKE[j].children[1].children[1].textContent));   
+                     
+                    for(var i=1;i<points.children.length;i++){
+                        var Event
+                        var point=points.children[i];   
+                        var setpoint =     point.children[0].textContent               
+                        cxt.lineTo(parseInt(point.children[0].textContent),parseInt(point.children[1].textContent));   
+                        cxt.strokeStyle = '#663300';
+                    }
+                    //cxt.closePath();
+                    cxt.stroke();
+                    //cxt.save();
+                    //cxt.restore();
+                    //setInterval('handleStateChange()',10000); 
+                }
+            }catch(exception){
+                 
+            }
+        }
+    }
+}
+</script>
+</head>
+ 
+<body onload="startRequest();">
+<canvas id="myCanvas" width="1400" height="900" style="border:1px solid #c3c3c3;"> Your browser does not support the canvas element. </canvas>
+</body>
+</html>

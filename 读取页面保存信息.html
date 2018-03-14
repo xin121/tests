@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	  function saveFileMesg(saveMesg, fileName, fnSuccess) {
+            var SAVEDATA = '';
+            if(typeof saveMesg == 'string'){
+                SAVEDATA = saveMesg;
+            }else{
+                SAVEDATA = JSON.stringify(saveMesg);
+            }
+            var sSendURL = "/reqsavefile?filename=" + fileName;
+            $.ajax({
+                url: sSendURL,
+                type: "POST",
+                data: encodeURI(SAVEDATA),
+                success: function(oData) {
+                    fnSuccess && fnSuccess(oData)
+                }
+            })
+        }
+       function readFileMesg(fileName, fnSuccess) {
+            var sSendURL = "/reqreadfile?filename=" + fileName;
+            $.ajax({
+                url: sSendURL,
+                success: function(oData) {
+                    fnSuccess && fnSuccess(oData);
+                }
+            });
+        }
+       saveFileMesg()
+</script>

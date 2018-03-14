@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.canvas{
+				width: 100px;
+				height: auto;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="canvas">
+				<canvas id="canvas"  width="1000px" height="800px"></canvas>
+		</div>
+	
+	</body>
+</html>
+<script type="text/javascript" src="../angular/js/jquery-1.12.0.min.js" ></script>
+<script>
+	var g = canvas.getContext("2d");
+	g.beginPath();
+	g.strokeStyle = "#000";
+	g.moveTo(10,500);
+	g.bezierCurveTo(600,100,500,600,1000,200);
+	g.stroke();
+	g.beginPath();
+	g.strokeStyle = "#FF0000";
+	g.moveTo(10,550);
+	g.bezierCurveTo(600,300,600,400,1000,300);
+	g.stroke();
+	g.beginPath();
+	g.strokeStyle = "#FF0000";
+	g.moveTo(10,400);
+	g.bezierCurveTo(400,200,300,600,500,350);
+	g.stroke();
+	g.beginPath();
+	g.strokeStyle = "#FF0000";
+	g.moveTo(500,350);
+	g.bezierCurveTo(600,200,800,600,1000,400);
+	g.stroke();
+	var time,n=100;
+	time = setInterval(function(){
+		n = n+10;
+		if(n>1000){
+			clearInterval(time);
+		}else{
+			$('.canvas').css('width',n+'px');
+		}
+		
+	},100)
+</script>

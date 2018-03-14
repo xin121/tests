@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="boortStrap/js/jquery-1.12.0.min.js" ></script>
+	<style>
+		div {
+		  display:none;border:1px solid #CCC;
+		  padding:10px;background:#F6F6F6;
+		}
+		input {position:absolute;top:100px;}
+	</style>
+	</head>
+	<body>
+		<div>次碳酸钴</div>
+		<input type="button" value="开始" />
+	</body>
+</html>
+<script>
+	var div=$("div");
+	$("input").click(function(){
+	  div.stop(true,true).fadeIn(500).delay(2000).fadeOut(500);
+	});
+</script>
+<script>
+	$(document).ready(function(){
+		function next(){
+			$(".main").dequeue("dd")
+		}
+		var _funclist = [
+			function (){
+				$(".block1").animate({left:"+=100"},next)
+			},
+			function(){
+				$(".block1").html("kikty")
+				window.setTimeout(function(){
+					text()
+				},1000)
+			},
+			function(){
+				$(".block2").animate({left:"+=100"},next)
+			},
+			function(){
+				$(".block2").html("kikty")
+				window.setTimeout(function(){
+					text()
+				},1000)
+			}
+		]
+		$(".main").queue("dd",_funclist)
+	})
+	var queue = [
+	function (){
+		$('itme-1').fadeIn(function(){
+			$(div).dequeue('a1');
+		})
+	},
+	function(){
+		$('item-2').fadeIn(function(){
+			$('div').dequeue('a1');
+		})
+	},
+	
+	]
+</script>

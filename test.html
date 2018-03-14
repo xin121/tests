@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org"> <!-- xmlns:th="http://www.thymeleaf.org" -->
+<head th:replace="fragments/headTag :: headTag">
+	<meta charset="utf-8" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge" />
+	<title>提交审核</title>
+	<meta name="description" content="智豆应用商店帮安卓手机用户发现最好的安卓应用和游戏，安全可靠，提供免费下载。" />
+	<meta name="keywords" content="智豆市场,智豆应用商店"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" /> -->
+	
+	<!-- Place favicon.ico in the root directory -->
+	<link rel="shortcut icon" type="image/x-icon" href="./../../resources/images/favicon.ico" th:href="@{images/favicon.ico}" />
+	
+	<link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+	<link rel="stylesheet" href="../../../resources/css/common.css" th:href="@{css/common.css}" />
+	<link rel="stylesheet" href="../../../resources/css/app.css" th:href="@{css/app.css}" />
+	
+	<link rel="stylesheet" href="../../../resources/css/base.css" th:href="@{css/base.css}" />
+	<link rel="stylesheet" href="../../../resources/css/kfpt.css" th:href="@{css/kfpt.css}" />
+	
+	<!-- Modernizr -->
+	<script src="../../../resources/js/vendor/modernizr-2.8.3.min.js" th:src="@{js/vendor/modernizr-2.8.3.min.js}"></script>
+	<!-- Respond.js for IE 8 or less only -->
+	<!--[if (lt IE 9) & (!IEMobile)]>
+	<script src="js/vendor/respond.min.js"></script>
+	<![endif]-->
+		<style type="text/css">
+		.footer p.hb{
+			width: 75px;
+		}
+		.footer p a {
+		    display: inline-block;
+		    margin-left: 21px;
+		    margin-bottom: 5px;
+		}
+		</style>
+	</head>
+	<body >
+	    <div th:include="fragments/bodyHeader :: bodyHeader" th:remove="tag">
+		    <!--[if lt IE 8]>
+		        <p class="browserupgrade">你正在使用一個 <strong>不支持</strong> 的瀏覽器. 升級你的瀏覽器會帶來更好的用戶體驗.</p>
+		    <![endif]-->	
+			<header>
+				<div class="wrap">
+					<div class="topNav clearfix">
+						<div class="logo Left">
+							<img src="../../../resources/images/logo.png" th:src="@{images/logo.png}"/>
+							<span>智豆开放平台</span>
+						</div>
+						<div class="mainNav Left">
+							<ul class="clearfix">
+								<li class="hover"><a href="#">首页</a></li>
+								<li ><a href="#">管理中心</a></li>
+								<li><a href="#">说明文档</a></li>
+								<li><a href="#">联系我们</a></li>
+							</ul>
+						</div>
+						<div class="rightLogin Right">
+							<p>
+								<a class="login" href="../signin/signin.html" th:href="@{/signin}">登录</a><em>|</em>
+								<a class="rig" src="../signup/signup.html" th:src="@{signup.html}">注册</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</header>
+		</div>
+		
+			<div class="wrapMain">
+				<div class="wrap clearfix">
+					<p class="title" style="text-align: left; line-height: 60px; margin-bottom: 0;">首页  > 管理中心  > 应用详情</p>
+					<div class="main">
+						<div class="yyxqTop clearfix">
+							<div class="Left">
+								<img src="../../../resources/images/aQQ.png"/>
+							</div>
+							<div class="Right yyxq">
+								<p style="padding-top: 10px;"> 
+									<span class="appName">腾讯旅游</span>
+									<span class="comImg">
+										<img src="../../../resources/images/mask2.png" />
+										<img src="../../../resources/images/mask2.png" />
+										<img src="../../../resources/images/mask2.png" />
+										<img src="../../../resources/images/mask1‘.png" />
+										<img src="../../../resources/images/mask3.png" />
+									</span>
+									<span class="comment">(<em class="comNum">111</em>人评论)</span>
+								</p>
+								<div class="listXq clearfix">
+									<ul class="Left">
+										<li>应用状态：<span class="yyzt">iii</span></li>
+										<li>检测结果：<span class="yyzt">iii</span></li>
+										<li>包名：<span class="yyzt">iii</span>
+										</li>
+										<li>
+											版本名称：<span class="yyzt">iiijjjjjjjjj</span>
+										</li>
+										
+									</ul>
+									<ul class="Left" style="margin-left: 50px">
+										<li>
+											<span></span>
+										</li>
+										<li>
+											<span></span>
+										</li>
+										<li>
+											<span class="appid">appid:<em class="id">0689</em></span>
+										</li>
+										<li>
+											<span class="appKey">appkey:<em class="key">1890</em></span>
+										</li>
+									</ul>
+								</div>
+								<div class="submit">
+									<button class="bj">编辑</button>
+									<button class="xj">下架</button>
+									<button class="bbsj">版本升级</button>
+								</div>
+							</div>
+						</div>
+						<div class="yyxqMain yylbNav">
+							 <div class="tit">
+					          	<ul class="tab-hd clearfix">
+									<li class="cur li1" ><a style="border-left: none;" href="javascript:void(0);">统计数据</a></li>
+									<li class="li2"><a href="javascript:void(0);">用户评价</a></li>
+									<li class="li3"><a href="javascript:void(0);">版本管理</a></li>
+								</ul>
+					        </div>
+					        <div class="tab-bd">
+					            <div class="list">
+						           <p class="listTitle">
+						           	 <span class="zrxz">昨日下载：<em class="zrxzNum">89</em>次</span>
+						           	 <span class="yzxz">最近一周下载：<em class="yzxzNum">89</em>次</span>
+						           	 <span class="qbxz">全部下载：<em class="qbxzNum">89</em>次</span>
+						           </p>
+						           <div class="chart">
+						           		<img  src="../../../resources/images/char.png"/>
+						           </div>
+						           
+					            </div>
+					            <div class="list1">
+					            	<div class="yupj">
+					            		<div class="pjBox clearfix">
+					            			<p class="pjTitle">
+					            				<span class="pjName">年后你好</span>
+					            				<span class="pjTime">2016-06-07 17:08</span>
+					            				<span class="pjImg">
+					            					<img src="../../../resources/images/minx.png" />
+													<img src="../../../resources/images/minx.png" />
+													<img src="../../../resources/images/minx.png" />
+													<img src="../../../resources/images/minxx.png" />
+													<img src="../../../resources/images/minxxx.png" />
+					            				</span>
+					            			</p>
+					            			<table class="clearfix">
+						            			<tr class="">
+						            				<td class="pjnr">
+						            				怎么大风越狠我心越荡幻如一丝尘土随风自由的在狂舞我要握紧手中坚定
+						            				怎么大风越狠我心越荡幻如一丝尘土随风自由的在狂舞我要握紧手中坚定
+						            				怎么大风越狠我心越荡幻如一丝尘土随风自由的在狂舞我要握紧手中坚定
+						            				怎么大风越狠我心越荡幻如一丝尘土随风自由的在狂舞我要握紧手中坚定
+						            				怎么大风越狠我心越荡幻如一丝尘土随风自由的在狂舞我要握紧手中坚定
+						            				怎么大风越狠我心越荡幻如一丝尘土随风自由的在狂舞我要握紧手中坚定
+						            				怎么大风越狠我心越荡幻如一丝尘土随风自由的在狂舞我要握紧手中坚定
+						            				</td>
+						            				<td class="repBtn">
+							            				<button class="Rep"> 申诉</button>
+							            			</td>
+						            			</tr>
+					            			</table>
+					            		</div>
+					            		<div class="pjBox clearfix">
+					            			<p class="pjTitle">
+					            				<span class="pjName">年后你好</span>
+					            				<span class="pjTime">2016-06-07 17:08</span>
+					            				<span class="pjImg">
+					            					<img src="../../../resources/images/minx.png" />
+													<img src="../../../resources/images/minx.png" />
+													<img src="../../../resources/images/minx.png" />
+													<img src="../../../resources/images/minxx.png" />
+													<img src="../../../resources/images/minxxx.png" />
+					            				</span>
+					            			</p>
+					            			<table class="clearfix">
+						            			<tr class="">
+						            				<td class="pjnr">
+						            				怎么大风越狠我心越荡幻如一丝尘土随风自由的在狂舞我要握紧手中坚定
+						            				
+						            				</td>
+						            				<td class="repBtn">
+							            				<button class="subSh"> 提交</button><button class="qx">取消</button>
+							            			</td>
+						            			</tr>
+					            			</table>
+					            			<div class="pjText">
+					            				<div class="tig"></div>
+					            				<textarea class="textarea">你好</textarea>
+					            			</div>
+					            		</div>
+					            		<div class="pjBox clearfix">
+					            			<p class="pjTitle">
+					            				<span class="pjName">年后你好</span>
+					            				<span class="pjTime">2016-06-07 17:08</span>
+					            				<span class="pjImg">
+					            					<img src="../../../resources/images/minx.png" />
+													<img src="../../../resources/images/minx.png" />
+													<img src="../../../resources/images/minx.png" />
+													<img src="../../../resources/images/minxx.png" />
+													<img src="../../../resources/images/minxxx.png" />
+					            				</span>
+					            			</p>
+					            			<table class="clearfix">
+						            			<tr class="">
+						            				<td class="pjnr">
+						            				怎么大风越狠我心越荡幻如一丝尘土随风自由的在狂舞我要握紧手中坚定
+						            				
+						            				</td>
+						            				<td class="repBtn">
+							            				<p class="ysu">已申诉</p>
+							            			</td>
+						            			</tr>
+					            			</table>
+					            			
+					            		</div>
+					            		<div class="page">
+					            			<nav>
+										  <ul class="pagination">
+										    <li>
+										      <a href="#" aria-label="Previous">
+										        <span aria-hidden="true">&laquo;</span>
+										      </a>
+										    </li>
+										    <li><a href="#">1</a></li>
+										    <li><a href="#">2</a></li>
+										    <li><a href="#">3</a></li>
+										    <li><a href="#">4</a></li>
+										    <li><a href="#">5</a></li>
+										    <li>
+										      <a href="#" aria-label="Next">
+										        <span aria-hidden="true">&raquo;</span>
+										      </a>
+										    </li>
+										  </ul>
+										</nav>
+					            		</div>
+					            	</div>
+					            </div>
+					      	    <div class="list2 bbgl">
+					      	    	<p class="zhu">注：只能回退到最新版本</p>
+					      	    	<div class="bbxx">
+					      	    		<table class="table">
+					      	    			<thead>
+					      	    				<tr>
+					      	    					<td style="width: 150px;">版本号</td>
+					      	    					<td style="width: 210px;">发布时间</td>
+					      	    					<td style="width: 330px";>简介</td>
+					      	    					<td style="width: 98px">操作</td>
+					      	    				</tr>
+					      	    			</thead>
+					      	    			<tbody>
+					      	    				<tr>
+					      	    					<td>1.0.2</td>
+					      	    					<td><p>2016-05-25 19:35</p></td>
+					      	    					<td class="nr"><p>*全新内容*<br />
+													这次的改版我一个从公测到玩到1.80的
+													更新。1.28.富甲什么的忘记了。比奇有
+													1.50。开始有赤月洞。更新圣战。天尊
+													1.62好像是更新血魔。虹膜装备的。
+													1.70 更新封魔谷的虹膜教主。
+													1.75 出了苍月岛、三个洞。骨魔尸魔</p></td>
+													<td>
+														<button class="huit">回退</button>
+													</td>
+					      	    				</tr>
+					      	    				<tr>
+					      	    					<td>1.0.2</td>
+					      	    					<td><p>2016-05-25 19:35</p></td>
+					      	    					<td class="nr"><p>*全新内容*<br />
+													这次的改版我一个从公测到玩到1.80的
+													更新。1.28.富甲什么的忘记了。比奇有
+													1.50。开始有赤月洞。更新圣战。天尊
+													1.62好像是更新血魔。虹膜装备的。
+													1.70 更新封魔谷的虹膜教主。
+													1.75 出了苍月岛、三个洞。骨魔尸魔</p></td>
+													<td>
+													</td>
+					      	    				</tr>
+					      	    			</tbody>
+					      	    		</table>
+					      	    	</div>
+					      	    </div>
+					      	   
+					        </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<footer th:replace="fragments/footer :: footer">
+				<div class="wrap">
+					<div class="footer " style="width: 650px;">
+						<p class="hb">友情链接：</p>
+						<p><a href="#">豌豆市场</a><a href="#">豌豆市场</a><a href="#">豌豆市场</a><a href="#">豌豆市场</a><a href="#">豌豆市场</a><a href="#">豌豆市场</a><a href="#">豌豆市场</a><a href="#">豌豆市场</a></p>
+						<div class="code">
+							<img src="../../../resources/images/code.png" th:src="@{images/code.png}"/>
+							<p>智豆市场</p>
+						</div>
+						<p class="beizhu">Copyright<span style="font-size: 18px;margin-left: 5px;vertical-align: middle;">©</span>  2016 杭州市智豆科技有限公司 版权所有 保留一切权利 | 浙ICP备10201639号</p>
+					</div>
+				</div>
+			</footer>
+			
+		
+		<th:block th:include="fragments/footTag :: footTag">
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<!--/*-->
+		<script>window.jQuery || document.write('<script src="../../../resources/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+		<!--*/-->
+		<!--/*/
+		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+		/*/-->	
+		
+		<script src="../../../resources/js/vendor/bootstrap.min.js" th:src="@{js/vendor/bootstrap.min.js}"></script>
+		
+		<!-- <script src="js/plugins.js"></script> -->
+		<script src="../../../resources/js/appmarket.js" th:src="@{js/appmarket.js}"></script>
+		
+		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+		<!-- 暂时注释掉google站点统计分析 -->
+<!-- 	<script> -->
+<!-- 	(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]= -->
+<!-- 	function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date; -->
+<!-- 	e=o.createElement(i);r=o.getElementsByTagName(i)[0]; -->
+<!-- 	e.src='https://www.google-analytics.com/analytics.js'; -->
+<!-- 	r.parentNode.insertBefore(e,r)}(window,document,'script','ga')); -->
+<!-- 	ga('create','UA-XXXXX-X','auto');ga('send','pageview'); -->
+<!-- 	</script> -->
+	</th:block>
+	</body>
+</html>
+<script type="text/javascript" src="../../../resources/js/code.js" th:src="@{js/code.js}"></script>
+<script type="text/javascript" src="../../../resources/js/kfpt.js" th:src="@{js/kfpt.js}"></script>
+<script src="../../../resources/js/fileupload.js" th:src="@{js/fileupload.js}" ></script>
+<script>
+	$('.list1,.list2,.list3,.list4,.list5').css('display', 'none');
+
+function tabs(tabTit, on, tabCon) {
+	$(tabTit).children().click(function() {
+		$(this).addClass(on).siblings().removeClass(on);
+		var index = $(tabTit).children().index(this);
+		//			console.log(index);
+		$(tabCon).children().eq(index).fadeIn().siblings().hide();
+	});
+};
+tabs(".tab-hd", "cur", ".tab-bd");
+$('.btn1').click(function() {
+	$('.li2').addClass('cur').siblings().removeClass('cur');
+	$('.list,.list2').css('display', 'none');
+	$('.list1').css('display', 'block');
+})
+$('.appDown').click(function(){
+	layer.confirm('下架后，用户将无法查看或下载该应用？', {
+	  btn: ['确定','取消'] //按钮
+	}, function(){
+	  layer.msg('已下架', {icon: 1});
+	  $(this).parents('.mainBox').remove();
+	}, function(){
+	  
+	});
+})
+</script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		  <style>
+div { height: 100px; width: 300px; margin: 10px;
+      background-color: #ffd; overflow: auto; }
+</style>
+	</head>
+	<body>
+		<!--<button id="clickme">点击</button>
+		<div id="book" style="width: 200px;height: 200px;background: #000;">
+			
+		</div>-->
+		<div>Click.</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.12.0.min.js" ></script>
+<script>
+//	$('#clickme').click(function() {
+//	  $('#book').animate({
+//	    width: ['toggle', 'swing'],
+//	    height: ['toggle', 'swing'],
+//	    opacity: 'toggle'
+//	  }, 5000, 'linear', function() {
+//	      $(this).after('<div>Animation complete.</div>');
+//	  });
+//	});
+//$('#clickme').click(function() {
+//	$('#book').animate({
+//	    opacity: 'toggle',
+//	    left: 'toggle',
+//	    height: 'toggle'
+//	}, 5000, function() {
+//	    // Animation complete.
+//	});
+//});
+//$('#clickme').click(function() {
+//$('#book').animate({
+//  width: 'toggle',
+//  height: 'toggle'
+//}, {
+//  duration: 5000,
+//  specialEasing: {
+//    width: 'linear',
+//    height: 'easeOutBounce'
+//  },
+//  complete: function() {
+//    $(this).after('<div>Animation complete.</div>');
+//  }
+//});
+//});
+//var last, diff;
+//
+//$('div').click(function(event) {
+//if ( last ) {
+//  diff = event.timeStamp - last;
+//  $('div').append('time since last event: ' + diff + '<br/>');
+//} else {
+//  $('div').append('Click again.<br/>');
+//}
+//last = event.timeStamp;
+////console.log(last);
+//});
+var n = 0;
+$('.target').one("click mouseenter",function(){
+	$(".count").html(++n)
+})
+</script>

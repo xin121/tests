@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		grep过滤数组$.grep(array,callback)
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.12.0.min.js" ></script>
+<script>
+var box = new Object();
+box.name = "liu";
+box.age = "18";
+ box.run =function(){
+ 	return this.age;
+ }
+// alert(box.run());
+//工厂模式
+ function createObject(name,age){
+ 	var obj = new Object;
+ 	obj.name = name;
+ 	obj.age = age;
+ 	obj.run = function(){
+ 		return this.name;
+ 	}
+   	return obj;//返回对象
+ }
+ var box = createObject('aa',18);
+ var box1 = createObject("ll",20);
+// alert(box.run());
+// alert(box1.run());
+ //构造函数创建对象，没有new对象，后台自动，不需要返回obj，自动返回，构造函数也是函数，第一个字母大写，必须new构造函数，如：box = new Box（）；
+ function Box(name,age){
+ 	this.name = name;//this相当于obj，当前作用域的引用
+ 	this.age = age;
+ 	this.run = function(){
+ 		return this.name;
+ 	}
+ }
+   var box1 = new Box("aa",11);//实例化后的地址不一样
+ 
+// 构造函数对象冒充调用
+var o = new Object;
+Box.call(o,'ll',100);
+//alert(o.run());
+</script>
+<script>
+//	function Box(name){
+//		this.name = name//实例属性
+//		this.run =function(){//实例方法
+//			return this.name;
+//		}
+//	}
+	
+	//原型
+	function Box(){
+		
+	}
+	Box.prototype.name = "lll"//原型属性
+	Box.prototype.run = function(){
+		return this.name;
+	}
+	var box = new Box();
+	alert(box.run());
+</script>

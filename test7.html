@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	</head>
+	<body>
+		<input type="file" />
+		<div ng-app="myApp" ng-controller="myCtrl">
+			数量：<input type="number" ng-model="quantity" />
+			价格：<input type="number" ng-model="price" />
+			<p>总价={{(quantity*price)|currecy}}</p>
+			
+Scope(作用域)是应用在html（视图）和js（控制器）之间的纽带
+Scope是一个对象，有可用的方法和属性
+Scope可用用在视图和控制器上
+当在angularjs创建控制器是，可以将$scope对象作为一个参数传递
+ng-controller指令定义了应用程序控制器，控制器是js对象，由标准的js对象的函数创建
+使用$scope对象来调用控制器
+		</div>
+	</body>
+</html>
+<script>
+//	var app = angular.module("myApp",[]);
+//	
+//	app.controller('myCtrl',function($scope, $rootScope){
+//		 $scope.names = ["Emil", "Tobias", "Linus"];
+//		 $rootScope.lastname = "Refsnes";
+//	})
+	angular.module('myApp', []).controller('personCtrl', function($scope) {
+    $scope.firstName = "John",
+    $scope.lastName = "Doe",
+    $scope.fullName = function() {
+        return $scope.firstName + " " + $scope.lastName;
+    }
+});
+</script>

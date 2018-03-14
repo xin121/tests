@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>display event.namespace</button>
+  		<p>vvv</p>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.12.0.min.js" ></script>
+<script>
+	//event.currentTarget在实践冒泡阶段中的当前DOM元素
+	$("p").click(function(event){
+		alert(event.currentTarget === this);//true
+	})
+	//event.data 当前执行的处理器被绑定的时候，包含可选的数据传递给$.fn.bind
+	//event.isDefaultPrevented 根据事件对象中是否调用过preventDefault方法返回布尔值
+//	$("p").bind("test.something", function(event) {
+//  alert( event.namespace );  });
+//$("button").click(function(event) {
+//  $("p").trigger("test.something");
+//})
+  //preventDefault 阻止默认事件触发
+  //eve.pageX鼠标相当对于文档左边缘的位置
+  function createCar(sColor,iDoors,iMpg){
+  	var oTempCar = new Object;
+  	oTempCar.color = sColor;
+  	oTempCar.doors = iDoors;
+  	oTempCar.mpg = iMpg;
+  	oTempCar.showColor = function(){
+  		document.write(this.color);
+  	}
+  	return oTempCar;
+  }
+  var oCar = createCar("red",4,23);
+  	oCar.showColor();
+  	var oCar1 = createCar("blue",3,4);
+  	oCar1.showColor();
+	
+</script>

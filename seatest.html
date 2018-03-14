@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript" src="js/require.js" ></script>
+<script>
+	// Execute a module
+Module.prototype.exec = function () {
+    var mod = this
+
+    // When module is executed, DO NOT execute it again. When module
+    // is being executed, just return `module.exports` too, for avoiding
+    // circularly calling
+    if (mod.status >= STATUS.EXECUTING) {
+        return mod.exports
+    }
+
+    mod.status = STATUS.EXECUTING
+
+    // Create require
+    var uri = mod.uri
+
+    function require(id) {
+        return Module.get(require.resolve(id)).exec()
+    }
+
+    require.resolve = function (id) {
+        return Module.resolve(id, uri)
+    }
+
+    require.async = function (ids, callback) {
+        Module.use(ids, callback, uri + "_async_" + cid())
+        return require
+    }
+
+    // Exec factory
+    var factory = mod.factory
+
+    var exports = isFunction(factory) ? factory(require, mod.exports = {},
+    mod) : factory
+
+    if (exports === undefined) {
+        exports = mod.exports
+    }
+
+    // Emit `error` event
+    if (exports === null && ! IS_CSS_RE.test(uri)) {
+        emit("error", mod)
+    }
+
+    // Reduce memory leak
+    delete mod.factory
+
+    mod.exports = exports
+    mod.status = STATUS.EXECUTED
+
+    // Emit `exec` event
+    emit("exec", mod)
+
+    return exports
+}
+
+</script>

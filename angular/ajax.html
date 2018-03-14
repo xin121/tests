@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.12.0.min.js" ></script>
+<script>
+	$.ajax({
+		type:"get",
+		url:"txt.json",
+		async:true,
+		dataType:"json",
+		success: function(data){
+			var Data = data.data.data;
+	    	console.log(Data)
+	    	var thml = '';
+	    	for (var i=0;i<Data.length;i++) {
+	    		thml +='<li>';
+	    		thml +='<span>'+Data[i].id+'</span>';
+	    		thml +='</li>';
+	    		thml +='<li>';
+	    		thml +='<span>'+Data[i].name+'</span>';
+	    		var sub_category = [];
+	    		 sub_category =JSON.parse(Data[i].sub_category);
+	    		console.log(sub_category.length)
+	    		for (var j=0;j<sub_category.length;j++) {
+	    			thml +='<p>'+sub_category[j].name+'</p>';
+	    		}
+	    		thml +='</li>';
+	    	}
+	    	$('div').html(thml);
+		}
+	});
+	var box = function(){
+	}
+	var box = new box('nn','sss'); 
+</script>

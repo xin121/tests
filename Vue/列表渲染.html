@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="example">
+			<li v-for="(item,index) in items">
+				 {{ parentMessage }} - {{ index }} - {{ item.message }}
+			</li>
+		</ul>
+		<ul id="repeat">
+			<li v-for="value in object">
+				{{value}}
+			</li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript" src="js/vue.min.js" ></script>
+<script>
+	var ex = new Vue({
+		  el: '#example',
+		  data: {
+		    parentMessage: 'Parent',
+		    items: [
+		      { message: 'Foo' },
+		      { message: 'Bar' },
+		      { message: 'Foo' },
+		      { message: 'Bar' }
+		    ]
+		  }
+	})
+	new Vue({
+		el:'#repeat',
+		data:{
+		    object: {
+		      FirstName: 'John',
+		      LastName: 'Doe',
+		      Age: 30
+		    }
+		}
+	})
+	var vm = new Vue({
+		data: {
+		  activeClass: 'active',
+		  errorClass: 'text-danger'
+		},
+		computed:{
+			classObject:function(){
+				return {
+					active:this.isActive && !this.error,
+					'text-danger' : this.error && this.error.type === 'fatal',
+				}
+			}
+		}
+	})
+</script>

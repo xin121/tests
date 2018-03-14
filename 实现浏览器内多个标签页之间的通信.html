@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	
+	<body>
+		方法一：使用localStorage
+		使用localStorage.setltem(key,value);添加内容
+		使用storage时间监听添加修改，删除的动作
+		<!--<input id="name" type="text" />-->
+		<input id="name"><input type="button" id="btnOK"value="发送">  
+	</body>
+</html>
+<script type="text/javascript" src="boortStrap/js/jquery-1.12.0.min.js" ></script>
+<script>
+//	window.addEventListener('storage',function(event){
+//		$("#name").val(event.key+'='+event.newValue);
+//	})
+$(function(){  
+       $("#btnOK").click(function(){  
+           varname=$("#name").val();  
+           document.cookie="name="+name;  
+       });  
+   });  
+</script>

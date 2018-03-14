@@ -1,0 +1,87 @@
+{
+
+    "data": {
+        "code": 1,
+        "data": [
+            {
+                "iconUrl": "http://ohfl499ro.bkt.clouddn.com/2017012117464378.jpg",
+                "id": 5,
+                "name": "社交通讯",
+                "parent_id": 3,
+                "sub_category": "[{\"id\":\"6\",\"parent_id\":\"5\",\"iconUrl\":\"\",\"name\":\"聊天\"},{\"id\":\"7\",\"parent_id\":\"5\",\"iconUrl\":\"\",\"name\":\"社交\"},{\"id\":\"8\",\"parent_id\":\"5\",\"iconUrl\":\"\",\"name\":\"婚恋\"},{\"id\":\"9\",\"parent_id\":\"5\",\"iconUrl\":\"\",\"name\":\"通讯\"}]"
+            },
+            {
+                "iconUrl": "http://ohfl499ro.bkt.clouddn.com/20170121174750191.jpg",
+                "id": 10,
+                "name": "影音播放",
+                "parent_id": 3,
+                "sub_category": "[{\"id\":\"11\",\"parent_id\":\"10\",\"iconUrl\":\"\",\"name\":\"音乐\"},{\"id\":\"12\",\"parent_id\":\"10\",\"iconUrl\":\"\",\"name\":\"视频\"},{\"id\":\"13\",\"parent_id\":\"10\",\"iconUrl\":\"\",\"name\":\"铃声\"},{\"id\":\"14\",\"parent_id\":\"10\",\"iconUrl\":\"\",\"name\":\"播放器\"},{\"id\":\"15\",\"parent_id\":\"10\",\"iconUrl\":\"\",\"name\":\"电台\"},{\"id\":\"109\",\"parent_id\":\"10\",\"iconUrl\":\"http://7sbqcw.com1.z0.glb.clouddn.com/20161206094059193.jpg\",\"name\":\"视频通讯\"},{\"id\":\"124\",\"parent_id\":\"10\",\"iconUrl\":\"http://7sbqcw.com1.z0.glb.clouddn.com/20161206094059193.jpg\",\"name\":\"音乐台\"}]"
+            },
+            {
+                "iconUrl": "http://ohfl499ro.bkt.clouddn.com/2017012117473455.jpg",
+                "id": 16,
+                "name": "系统工具",
+                "parent_id": 3,
+                "sub_category": "[{\"id\":\"17\",\"parent_id\":\"16\",\"iconUrl\":\"\",\"name\":\"优化\"},{\"id\":\"18\",\"parent_id\":\"16\",\"iconUrl\":\"\",\"name\":\"安全\"},{\"id\":\"19\",\"parent_id\":\"16\",\"iconUrl\":\"\",\"name\":\"浏览器\"},{\"id\":\"20\",\"parent_id\":\"16\",\"iconUrl\":\"\",\"name\":\"输入法\"}]"
+            },
+            {
+                "iconUrl": "http://ohfl499ro.bkt.clouddn.com/20170121174635139.jpg",
+                "id": 21,
+                "name": "拍摄美化",
+                "parent_id": 3,
+                "sub_category": "[{\"id\":\"22\",\"parent_id\":\"21\",\"iconUrl\":\"\",\"name\":\"相机\"},{\"id\":\"23\",\"parent_id\":\"21\",\"iconUrl\":\"\",\"name\":\"照片美化\"},{\"id\":\"24\",\"parent_id\":\"21\",\"iconUrl\":\"\",\"name\":\"摄像\"}]"
+            },
+            {
+                "iconUrl": "http://ohfl499ro.bkt.clouddn.com/20170121174650201.jpg",
+                "id": 25,
+                "name": "理财购物",
+                "parent_id": 3,
+                "sub_category": "[{\"id\":\"26\",\"parent_id\":\"25\",\"iconUrl\":\"\",\"name\":\"网购\"},{\"id\":\"27\",\"parent_id\":\"25\",\"iconUrl\":\"\",\"name\":\"记账\"},{\"id\":\"28\",\"parent_id\":\"25\",\"iconUrl\":\"\",\"name\":\"彩票\"},{\"id\":\"29\",\"parent_id\":\"25\",\"iconUrl\":\"\",\"name\":\"股票基金\"},{\"id\":\"30\",\"parent_id\":\"25\",\"iconUrl\":\"\",\"name\":\"银行\"}]"
+            },
+            {
+                "iconUrl": "http://ohfl499ro.bkt.clouddn.com/2017012117471770.jpg",
+                "id": 31,
+                "name": "生活实用",
+                "parent_id": 3,
+                "sub_category": "[{\"id\":\"32\",\"parent_id\":\"31\",\"iconUrl\":\"\",\"name\":\"日历\"},{\"id\":\"33\",\"parent_id\":\"31\",\"iconUrl\":\"\",\"name\":\"天气\"},{\"id\":\"34\",\"parent_id\":\"31\",\"iconUrl\":\"\",\"name\":\"医疗健康\"},{\"id\":\"35\",\"parent_id\":\"31\",\"iconUrl\":\"\",\"name\":\"运动健身\"},{\"id\":\"36\",\"parent_id\":\"31\",\"iconUrl\":\"\",\"name\":\"母婴\"},{\"id\":\"37\",\"parent_id\":\"31\",\"iconUrl\":\"\",\"name\":\"美食\"},{\"id\":\"38\",\"parent_id\":\"31\",\"iconUrl\":\"\",\"name\":\"娱乐\"},{\"id\":\"39\",\"parent_id\":\"31\",\"iconUrl\":\"\",\"name\":\"生活服务\"}]"
+            },
+            {
+                "iconUrl": "http://ohfl499ro.bkt.clouddn.com/2017012117461997.jpg",
+                "id": 40,
+                "name": "主题壁纸",
+                "parent_id": 3,
+                "sub_category": "[{\"id\":\"41\",\"parent_id\":\"40\",\"iconUrl\":\"\",\"name\":\"壁纸\"},{\"id\":\"42\",\"parent_id\":\"40\",\"iconUrl\":\"\",\"name\":\"动态壁纸\"},{\"id\":\"43\",\"parent_id\":\"40\",\"iconUrl\":\"\",\"name\":\"桌面美化\"},{\"id\":\"44\",\"parent_id\":\"40\",\"iconUrl\":\"\",\"name\":\"主题\"}]"
+            },
+            {
+                "iconUrl": "http://ohfl499ro.bkt.clouddn.com/2017012117462733.jpg",
+                "id": 45,
+                "name": "资讯阅读",
+                "parent_id": 3,
+                "sub_category": "[{\"id\":\"46\",\"parent_id\":\"45\",\"iconUrl\":\"\",\"name\":\"新闻\"},{\"id\":\"47\",\"parent_id\":\"45\",\"iconUrl\":\"\",\"name\":\"漫画\"},{\"id\":\"48\",\"parent_id\":\"45\",\"iconUrl\":\"\",\"name\":\"电子书\"},{\"id\":\"49\",\"parent_id\":\"45\",\"iconUrl\":\"\",\"name\":\"笑话\"}]"
+            },
+            {
+                "iconUrl": "http://ohfl499ro.bkt.clouddn.com/20170121174700124.jpg",
+                "id": 50,
+                "name": "旅游出行",
+                "parent_id": 3,
+                "sub_category": "[{\"id\":\"51\",\"parent_id\":\"50\",\"iconUrl\":\"\",\"name\":\"地图导航\"},{\"id\":\"52\",\"parent_id\":\"50\",\"iconUrl\":\"\",\"name\":\"旅行攻略\"},{\"id\":\"53\",\"parent_id\":\"50\",\"iconUrl\":\"\",\"name\":\"购票\"},{\"id\":\"54\",\"parent_id\":\"50\",\"iconUrl\":\"\",\"name\":\"酒店\"}]"
+            },
+            {
+                "iconUrl": "http://ohfl499ro.bkt.clouddn.com/2017012117461064.jpg",
+                "id": 55,
+                "name": "办公学习",
+                "parent_id": 3,
+                "sub_category": "[{\"id\":\"56\",\"parent_id\":\"55\",\"iconUrl\":\"\",\"name\":\"办公\"},{\"id\":\"57\",\"parent_id\":\"55\",\"iconUrl\":\"\",\"name\":\"笔记\"},{\"id\":\"58\",\"parent_id\":\"55\",\"iconUrl\":\"\",\"name\":\"考试学习\"},{\"id\":\"59\",\"parent_id\":\"55\",\"iconUrl\":\"\",\"name\":\"驾考\"},{\"id\":\"126\",\"parent_id\":\"55\",\"iconUrl\":\"http://ohfl499ro.bkt.clouddn.com/2016123115375045.jpg\",\"name\":\"驾考2\"},{\"id\":\"127\",\"parent_id\":\"55\",\"iconUrl\":\"http://ohfl499ro.bkt.clouddn.com/2016123115375045.jpg\",\"name\":\"驾考7\"}]"
+            },
+            {
+                "iconUrl": "http://ohfl499ro.bkt.clouddn.com/2017012117470740.jpg",
+                "id": 102,
+                "name": "其它软件",
+                "parent_id": 3,
+                "sub_category": "[{\"id\":\"104\",\"parent_id\":\"102\",\"iconUrl\":\"\",\"name\":\"其它\"}]"
+            }
+        ]
+    },
+    "result": 200
+
+}

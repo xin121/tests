@@ -1,0 +1,32 @@
+﻿
+
+.bdImg{
+	width: 980px;
+	overflow: hidden;
+}
+.mr_t1name img{float:left;margin-top:9px;margin-right:6px;display:inline;}
+.mr_frbox{height:440px;position: relative;overflow: hidden;padding-top: 20px;}
+.mr_frBtnL{cursor:pointer;display:inline;position: absolute;left: 0px;top: 180px;z-index: 100;}
+.mr_frUl{float:left;height:440px;width: 920px;overflow: hidden; margin-left: 30px; position: relative;}
+.mr_frBtnR{cursor:pointer;display:inline;position: absolute;right: 0px;top: 180px;}
+.bdImg .mr_frUl ul li{display:inline;float:left;height:400px;width:225px;margin-right:20px;overflow:hidden;}
+.bdImg .mr_frUl ul li img{display:inline;margin-bottom:7px;cursor: default;}
+#homemr_frUl{
+	position: absolute;
+	left: 0;
+}
+
+.homeSulp  .mr_t1name img{float:left;margin-top:9px;margin-right:6px;display:inline;}
+.homeSulp  .mr_frbox{height:180px;position: relative;overflow: hidden; width: 700px; padding-top: 0;}
+.homeSulp  .mr_frBtnL{cursor:pointer;display:inline;position: absolute;left: 20px;top: 80px;z-index: 100;}
+.homeSulp  .mr_frUl{float:left; height:180px;width: 575px;overflow: hidden;margin-top: 0px; margin-left: 75px; z-index: 100; position: relative;}
+.homeSulp  .mr_frBtnR{cursor:pointer;display:inline;position: absolute;right: 20px;top: 80px;z-index: 100;}
+/*.homeSulp  .mr_frUl ul li{display:inline;float:left;width:95px;margin-right:20px;overflow:hidden; height: 180px;}*/
+/*.homeSulp .hotApp p{
+	margin-top: 5px;
+    margin-bottom: 5px;
+}*/
+.homeSulp .hotApp{
+	padding-top: 20px;
+	margin-right: 10px;
+}

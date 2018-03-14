@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul{
+				-webkit-padding-start: 0;
+			    -webkit-margin-before: 0em;
+			    -webkit-margin-after: 0em;
+			    width: 50%;
+			    display: block;
+			    margin: 0 auto;
+			    /*border: 1px solid #ccc;*/
+			    outline: 1px groove red;
+			}
+			.demo li {
+			    border-bottom: 1px solid #ccc;
+			    line-height: 40px;
+			}
+			.demo li {
+			    margin-left: 15px;
+			}
+			.demo li:hover {
+			    background-color: #f3f3f3;
+			}
+			.demo li:last-child {
+			    margin-left: 0;
+			    padding-left: 15px;
+			}
+			.demo li {
+			    line-height: 40px;
+			    list-style: none;
+			}	
+			.demo li::after {
+			    position: absolute;
+			    right: 0;
+			    bottom: 0;
+			    left: 0;
+			    border-bottom: 1px solid #ccc;
+			    content: "\0020";
+			}
+		</style>
+	</head>
+	
+	<body>
+		<ul class="demo">
+			<li>lalal</li>
+			<li>lalal</li>
+			<li>lalal</li>
+			<li>lalal</li>
+			<li>lalal</li>
+			<li>v</li>
+			<li>lalal</li>
+		</ul>
+	</body>
+</html>

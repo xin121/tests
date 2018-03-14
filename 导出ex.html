@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+	<meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="angular/js/jquery-1.12.0.min.js" ></script>
+    <script type="text/javascript">
+        function toExcel() {
+            var curTbl = document.getElementById("tableToEXC");
+            var oXL = new ActiveXObject("Excel.Application");
+            var oWB = oXL.Workbooks.Add();
+            var oSheet = oWB.ActiveSheet;
+
+            var sel = document.body.createTextRange();
+            sel.moveToElementText(curTbl);
+            sel.select();
+            sel.execCommand("Copy");
+            oSheet.Paste();
+            oXL.Visible = true;
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table id="tableToEXC">
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>地址</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>tom</td>
+                <td>12</td>
+                <td>beijing</td>
+            </tr>
+            <tr>
+                <td>tom</td>
+                <td>12</td>
+                <td>beijing</td>
+            </tr>
+            <tr>
+                <td>tom</td>
+                <td>12</td>
+                <td>beijing</td>
+            </tr>
+        </tbody>
+    </table>
+        <input type="button" onclick="toExcel()" value="导出" />
+    </div>
+    </form>
+</body>
+</html>

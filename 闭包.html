@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function box(){
+		var age = 100;
+		return function(){
+			age++
+			return age
+		}
+	}
+	//函数调用 ,闭包可以将变量驻留在内存中
+//	box()() 第一次调用返回匿名函数，第二次调用返回age，过多使用闭包，会照成性能下降
+
+var b = box();
+b()
+	
+</script>
+<script>
+	/**
+ * 功能：保存用户修改完form标签内容在LocalStorage中。
+ * 作者：黄金锋 (549387177@qq.com)
+ * 日期：2015-11-1  11:14:01
+ * 修改：2015-11-19 16:09:00
+ * 版本：version 3.0
+ */
+ 
+define(function () {
+ 
+    //从localStorage中加载数据
+    function onload(form) {
+ 
+        var fh = form_handler;
+        var p = fh.getParams(form);
+        if (!p.bimId || !p.formId || !p.iid) {
+            return;
+        }
+        var id = 'FORM_' + DCI.LoginUser.UserId + '_' + p.bimId + '_' + p.formId + '_' + p.iid;
+ 
+        var formDataDb;
+        var allControl = $(form).find("input:text[name],textarea[name]");
+ 
+        //从本地取
+        var storage = localStorage.getItem(id);
+        if (storage != null)
+        {
+            if (confirm("是否加载缓存数据")) {
+ 
+                var myData = JSON.parse(storage);
+                allControl.each(function (i, e) {
+                    var name = $(e).attr("name");
+                    if (myData[name] != null) {
+                        $(e).val(myData[name]);
+                        $(e).change();
+                    }
+                });
+            }
+        }
+ 
+        var allGrid = $(form).find(".form-table");
+        var formId = $(form).data("formid");
+        var formStorage= localStorage.getItem("FORM_" + formId + "_isGridData");
+        if (formStorage=="1")
+        {
+            if (confirm("是否加载Grid缓存数据"))
+            {
+                //给Grid控件赋值
+                allGrid.each(function (index, element) {
+                    var formName = $(element).find("input:hidden[data-formid]").attr("name");
+                    var ipt = $(element).find("input[name]");
+                    var table = $(element).find("input:hidden[data-formid]").siblings(".form-table-body").find(".table-hover");
+                    var storageKey = "FORM_" + formId + "_" + formName;
+                    var data = localStorage.getItem(storageKey);
+                    var myData = JSON.parse(data);
+                    if (myData != null) {
+                        alert(data);
+                            var InsertTotal = myData["Total"]["InsertTotal"];
+                            var DelTotal = myData["Total"]["DelTotal"];
+                            var UpdateTotal = myData["Total"]["UpdateTotal"];
+                            var trIIDIndex = myData["trIIDIndex"]["IID"];
+                            if (InsertTotal > 0) {
+                                for (var i = 0; i < InsertTotal; i++) {
+                                    var tr = $('<tr></tr>');
+                                    var row_data = myData["Insert"][i];
+                                    table.find('colgroup col').each(function (idx, el) {
+                                        var td = $('<td></td>');
+                                        if (idx == 0) {
+                                            td.append('<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>');
+                                            td.addClass('form-table-edit');
+                                        }
+                                        else {
+                                            var index = $(el).data('index');
+                                            var type = $(el).data('type')
+                                            if (type == "RowNumber") {
+                                                var val = row_data["RowNumber"];
+                                                td.html(val);
+                                            }
+                                            if (type == "CheckBox") {
+                                                var val = row_data[index];
+                                                td.append('<input type="checkbox" value="' + val + '" ' + (val == '1' ? 'checked="checked"' : '') + ' />');
+                                            }
+                                            if (index && type != "CheckBox") {
+                                                td.html(row_data[index]);
+                                            }
+                                        }
+                                        if ($(el).attr('width') == '0')
+                                            td.addClass('hidden');
+                                        td.appendTo(tr);
+                                    });
+                                    //table.find("tbody").append(tr);
+                                    table.append(tr);
+ 
+                                    tr.data("insert", true);
+                                    ipt.change();
+                                }
+                            }
+ 
+                            if (UpdateTotal > 0) {
+ 
+                                for (var i = 0; i < UpdateTotal; i++) {
+                                    var row_data = myData["Update"][i];
+                                    var trIID = row_data["trIID"];
+                                    var trIndex;
+                                    table.find("tr").each(function (idx, ele)
+                                    {
+                                        var iid = $(ele).find("td").eq(trIIDIndex).html();
+                                        if (iid == trIID) {
+                                            trIndex = idx;
+                                        }
+                                    });
+ 
+                                    var cells = table.find("tr").eq(trIndex);
+                                    table.find('colgroup col').each(function (idx, el)
+                                    {
+                                        var index = $(el).data('index');
+                                        if (index)
+                                        {
+                                            var td = cells.find("td").eq(idx);
+                                            var type = $(el).data('type');
+                                            var test =new Object();
+                                            
+                                            var text = row_data[index];
+ 
+                                            if (type == 'CheckBox')
+                                            {
+                              
+                                                var ck = td.find('input[type="checkbox"]');
+                                                if (text == '1')
+                                                    ck.prop('checked', true);
+                                                else
+                                                    ck.prop('checked', false);
+                                            }
+                                            else
+                                            {
+                                                td.text(text);
+                                            }
+                                        }
+                                    });
+                                    cells.data("update", true);
+                                    ipt.change();
+ 
+                                }
+                            }
+ 
+                            if (DelTotal > 0) {
+                                for (var i = 0; i < DelTotal; i++) {
+                                    var row_data = myData["Del"][i];
+                                    var trIID = row_data["trIID"];
+                                    table.find("tr").each(function (idx,ele) {
+                                        var iid = $(ele).find("td").eq(trIIDIndex).html();
+                                        if ( iid== trIID)
+                                        {
+                                            $(this).css("display", "none");
+                                            $(this).data("delete", true);
+                                            ipt.change();
+                                        }
+                                    });
+     
+                                }
+                            }
+                         
+ 
+                    }
+                });
+            }
+        }
+ 
+ 
+ 
+        //绑定change事件
+        allControl.each(function (i, el) {
+            var name = $(el).attr('name');
+            if (name) {
+                $(el).on('change', function () {
+                    onchange(this);
+                });
+            }
+        });
+ 
+        //保存修改的数据
+        function onchange(el) {
+            var storage = localStorage.getItem(id);
+            if (storage == null) {
+                formDataDb = new Object();
+                var key = $(el).attr("name");
+                var value = $(el).val();
+                formDataDb[key] = value;
+                localStorage.setItem(id, JSON.stringify(formDataDb));
+            } else {
+                var myData = JSON.parse(storage);
+                var key = $(el).attr("name");
+                var value = $(el).val();
+                myData[key] = value;
+                localStorage.setItem(id, JSON.stringify(myData));
+            }
+        }
+    };
+ 
+    //删除localStorage中的数据
+    function onsave(form) {
+        var fh = form_handler;
+        var p = fh.getParams(form);
+        var id = 'FORM_' + DCI.LoginUser.UserId + '_' + p.bimId + '_' + p.formId + '_' + p.iid;
+        localStorage.removeItem(id);
+ 
+ 
+        var allGrid = $(form).find(".form-table");
+        var formId = $(form).data("formid");
+        allGrid.each(function (index,element) {
+            var formName = $(element).find("input:hidden[data-formid]").attr("name");
+            var storageKey = "FORM_" + formId + "_" + formName;
+            localStorage.removeItem(storageKey);
+        });
+ 
+        localStorage.setItem("FORM_" + formId + "_isGridData", null);
+    }
+ 
+    function ongridadd(form, table, data, tr) {
+        var inputflag = table.closest("div .form-table").find("input:hidden[data-formid]")
+        var storageKey;
+        var formId = $(form).data("formid");;
+        localStorage.setItem("FORM_" + formId + "_isGridData", "1");
+        var RowNumber = table.find(".active").children().eq(1).html();
+        var trIIDIndex;
+        var trIID;
+        table.find("col").each(function (idx, ele) {
+            if ($(ele).data("index") == "IID") {
+                trIID = table.find(".active").children().eq(idx).html();
+                trIIDIndex = idx;
+            }
+        });
+        var InsertObj = { trIID: trIID, RowNumber: RowNumber };
+ 
+        var columnArr = table.children().find("[data-index]");
+        if (columnArr) {
+            columnArr.each(function (index, element) {
+                var flag = $(element).data("index");
+                InsertObj[flag] = data[flag];
+            }); 
+        }
+         
+        if (inputflag && trIID)
+        {
+            storageKey = "FORM_" + formId + "_" + inputflag.attr("name");
+            //var mydata = "{'Insert':[{'trIID':'1','ID':'test','IID':'测试'},{'trIID':'2','ID':'test2','IID':'测试2'}],'Update':[{'trIID':'3','ID':'test3','IID':'测试3'},{'trIID':'4','ID':'test4','IID':'测试4'}],'Del':[{'trIID':'1'},{'trIID':'2'}]}";
+ 
+            var getLocalStorage = localStorage.getItem(storageKey);
+            if (getLocalStorage) {
+ 
+                var dataObj = JSON.parse(getLocalStorage);
+                var InsertTotal = dataObj["Total"]["InsertTotal"];
+  
+                dataObj["Insert"][InsertTotal] = InsertObj;
+                dataObj["Total"]["InsertTotal"] = InsertTotal + 1;
+                localStorage.setItem(storageKey, JSON.stringify(dataObj));
+ 
+            } else
+            {
+                var mydata = { Total: { InsertTotal: 1, UpdateTotal: 0, DelTotal: 0 }, Insert: [InsertObj], Update: [], Del: [], Notes: { storageKey: storageKey }, trIIDIndex: { IID: trIIDIndex } };
+                localStorage.setItem(storageKey, JSON.stringify(mydata));
+            }
+        }
+ 
+    }
+ 
+    function ongridedit(form, table, data, tr) {
+        
+        var inputflag = table.closest("div .form-table").find("input:hidden[data-formid]")
+        var formId = $(form).data("formid");
+        var storageKey = "FORM_" + formId + "_" + inputflag.attr("name");
+        localStorage.setItem("FORM_" + formId + "_isGridData", "1");
+        var mySourceData = {};
+        var trIIDIndex;
+        table.find("col").each(function (idx, ele)
+        {
+            var index = $(ele).data("index");
+            var type = $(ele).data("type");
+            if (index)
+            {
+                if (type == "CheckBox")
+                {
+                    var val = table.find(".active").children().eq(idx).html();
+                    var value =$(val).val();
+                    mySourceData[index] = value;
+                }
+                else
+                {
+                    if (index == "IID")
+                    {
+                        trIIDIndex = idx;
+                    }
+                    mySourceData[index] = table.find(".active").children().eq(idx).html();
+                }
+            }
+        });
+ 
+        var trIID = mySourceData["IID"];
+        var UpdateObj = { trIID: trIID };
+        $.extend(UpdateObj, mySourceData);
+ 
+        var getLocalStorage = localStorage.getItem(storageKey);
+        if (getLocalStorage)
+        {
+            var dataObj = JSON.parse(getLocalStorage);
+            var InsertTotal = dataObj["Total"]["InsertTotal"];
+            var UpdateTotal = dataObj["Total"]["UpdateTotal"];
+ 
+ 
+ 
+            if (InsertTotal > 0)//新增后在编辑
+            {
+                for (var i = 0; i < InsertTotal; i++) {
+                    var row_data = dataObj["Insert"][i];
+                    if (row_data["trIID"] == trIID) {
+                        $.extend(dataObj["Insert"][i], UpdateObj);
+                    }
+                }
+            }
+ 
+            if (UpdateTotal > 0)//编辑之后在编辑
+            {
+                for (var i = 0; i < UpdateTotal; i++) {
+                    var row_data = dataObj["Update"][i];
+                    if (row_data["trIID"] == trIID) {
+                        $.extend(dataObj["Update"][i], UpdateObj);
+                    }
+                }
+            }
+   
+            var UpdateTotal = dataObj["Total"]["UpdateTotal"];
+            dataObj["Update"][UpdateTotal] = UpdateObj;
+            dataObj["Total"]["UpdateTotal"] = UpdateTotal + 1;
+       
+ 
+            localStorage.setItem(storageKey, JSON.stringify(dataObj));
+        }
+        else
+        {
+ 
+            var mydata = { Total: { InsertTotal: 0, UpdateTotal: 1, DelTotal: 0 }, Insert: [], Update: [UpdateObj], Del: [], Notes: { storageKey: storageKey }, trIIDIndex: { IID: trIIDIndex } };
+            localStorage.setItem(storageKey, JSON.stringify(mydata));
+        }
+ 
+ 
+        var testdata = localStorage.getItem(storageKey);
+        var myData = JSON.parse(testdata);
+        if (testdata != null) {
+            alert(testdata);
+            //alert(mydata);
+            //alert(myData["Total"]["InsertTotal"]);
+            //alert(myData["Insert"][0]["ID"]);
+        }
+    }
+ 
+    function ongriddel(form, table, tr) {
+        var inputflag = table.closest("div .form-table").find("input:hidden[data-formid]")
+        var formId = $(form).data("formid");
+        var storageKey = "FORM_" + formId + "_" + inputflag.attr("name");;
+        localStorage.setItem("FORM_" + formId + "_isGridData", "1");
+        var trIIDIndex;
+        var trIID;
+        table.find("col").each(function (idx, ele) {
+            if ($(ele).data("index") == "IID")
+            {
+                trIIDIndex = idx;
+                trIID = tr.find("td").eq(idx).html();
+            }
+        });
+ 
+        var DelObj = { trIID: trIID };
+ 
+        var getLocalStorage = localStorage.getItem(storageKey);
+        if (getLocalStorage) {
+ 
+            var dataObj = JSON.parse(getLocalStorage);
+            var isInsertData = false;
+            var isUpdateDel = false;
+            var InsertTotal = dataObj["Total"]["InsertTotal"];
+            var DelTotal = dataObj["Total"]["DelTotal"];
+            var UpdateTotal = dataObj["Total"]["UpdateTotal"];
+             
+ 
+            if (InsertTotal > 0) {
+ 
+                for (var i = 0; i < InsertTotal; i++) {
+                    var row_data = dataObj["Insert"][i];
+                    if (row_data["trIID"] == trIID) {
+                        isInsertData = true;
+                        dataObj["Insert"][i] = null;
+                    }
+                }
+            }
+ 
+            if (UpdateTotal>0)
+            {
+                for (var i = 0; i < UpdateTotal; i++) {
+                    var row_data = dataObj["Update"][i];
+                    if (row_data["trIID"] == trIID) {
+                        isUpdateDel = true;
+                        dataObj["Update"][i] = null;
+                    }
+                }
+            }
+ 
+ 
+            if (isInsertData)
+            {
+                var tempArr = [];
+                for (var i = 0; i < InsertTotal; i++) {
+                    if (dataObj["Insert"][i] != null) {
+                        tempArr[i]=dataObj["Insert"][i];
+                    }
+                }
+ 
+                dataObj["Insert"] = tempArr;
+                dataObj["Total"]["InsertTotal"] = InsertTotal - 1;
+            }
+            else
+            {
+ 
+                if (isUpdateDel)
+                {
+                    var tempArr = [];
+                    for (var i = 0; i < InsertTotal; i++) {
+                        if (dataObj["Update"][i] != null) {
+                            tempArr[i] = dataObj["Update"][i];
+                        }
+                    }
+ 
+                    dataObj["Update"] = tempArr;
+                    dataObj["Total"]["UpdateTotal"] = UpdateTotal - 1;
+ 
+                } 
+                 
+                dataObj["Del"][DelTotal] = DelObj;
+                dataObj["Total"]["DelTotal"] = DelTotal + 1;
+                 
+            }
+ 
+            localStorage.setItem(storageKey, JSON.stringify(dataObj));
+            if (dataObj["Total"]["InsertTotal"] == 0 && dataObj["Total"]["UpdateTotal"] == 0 && dataObj["Total"]["DelTotal"] == 0)
+            {
+                localStorage.setItem("FORM_" + formId + "_isGridData", null);
+            }
+ 
+ 
+        } else
+        {
+            var mydata = { Total: { InsertTotal: 0, UpdateTotal: 0, DelTotal: 1 }, Insert: [], Update: [], Del: [DelObj], Notes: { storageKey: storageKey }, trIIDIndex: { IID: trIIDIndex } };
+            localStorage.setItem(storageKey, JSON.stringify(mydata));
+        }
+ 
+    }
+ 
+    return {
+        onload: onload,
+        onsave: onsave,
+        ongridadd: ongridadd,
+        ongridedit: ongridedit,
+        ongriddel: ongriddel
+    }
+});
+</script>

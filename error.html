@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--<form id="fl">-->
+			<input type="text" id="val" placeholder="请输入"  />
+			<button onclick="txt()">请输入</button>
+		<!--</form>-->
+			
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+
+ <script>
+//var val=document.getElementById("val")	
+//		function txt(){				
+//			console.log(val.value)
+//		}
+   	var val= $('#val');
+   	function txt(){
+// 		if(val==null||val==''){
+// 			alert("999");
+// 		}else if(val.length>6&&val.length<10){
+// 			alert("ss");
+// 		}
+   		console.log(val.val());
+   		
+   	}
+   
+ </script>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.warp{
+				width: 1200px;
+				height: 1200px;
+				margin: 0 auto;
+				position: relative;
+			}
+			.item{
+				width: 100px;
+				height: 100px;
+				background: #6CFFCF;
+				position: absolute;
+			}
+			.dot{
+				width: 100px;
+				height:550px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="warp">
+			<div class="item">1</div>
+			<div class="item">2</div>
+			<div class="item">3</div>
+			<div class="item">4</div>
+			<div class="item">5</div>
+			<div class="item">6</div>
+			<div class="item">7</div>
+			<div class="item">8</div>
+			<div class="item">9</div>
+			<div class="dot"></div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="angular/js/jquery-1.12.0.min.js" ></script>
+<script>
+	  var dotLeft = ($(".warp").width()-$(".dot").width())/2;
+        //中心点纵坐标
+        var dotTop = ($(".warp").height()-$(".dot").height())/2;
+        //起始角度
+        var stard = 0;
+        //半径
+        var radius = 300;
+        //每一个BOX对应的角度;
+        var avd = 360/$(".item").length;
+        //每一个BOX对应的弧度;
+        var ahd = avd*Math.PI/180;
+        
+        
+        
+        //设置圆的中心点的位置
+        $(".dot").css({"left":dotLeft,"top":dotTop});
+        $(".item").each(function(index, element){
+            $(this).css({"left":Math.sin((ahd*index))*radius+dotLeft,"top":Math.cos((ahd*index))*radius+dotTop});
+        });
+        
+        
+         var speed = 2;
+          var fun_animat = function(){
+            
+            speed = speed<360?speed:2;
+            
+            //运运的速度
+            speed+=2;
+            //运动距离，即运动的弧度数;
+            var ainhd = speed*Math.PI/180;
+            
+            //按速度来定位DIV元素
+            $(".item").each(function(index, element){
+                $(this).css({"left":Math.sin((ahd*index+ainhd))*radius+dotLeft,"top":Math.cos((ahd*index+ainhd))*radius+dotTop});
+             });
+        }
+        
+        //定时调用运动函数
+        var setAnimate = setInterval(fun_animat,100);
+        $('.warp').hover(function(){
+        	clearInterval(setAnimate);
+        },function(){
+        	setAnimate = setInterval(fun_animat,100);
+        })
+</script>

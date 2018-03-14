@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button >aa</button>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+<script>
+$("button").click(function(){
+	console.log("aa");
+	alert("aa");
+})
+var timer=setInterval(function(){
+	var button=document.querySelector('button');
+	if(!button.disabled){
+		button.click();
+		clearInterval(timer);
+	}	
+},1000)
+
+
+//[].forEach.call($$("*"),function(a){
+//    a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)
+//})
+</script>

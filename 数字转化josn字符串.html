@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		bind,on,live,delegate区别
+		bind最直接的绑定方法会绑定事件类型和处理行数到dom上
+		live用到了事件委托的概念来处理事件的绑定
+	</body>
+</html>
+<script type="text/javascript" src="boortStrap/js/jquery-1.12.0.min.js" ></script>
+<script>
+	  var jsonString = '[ { "ID": 0, "name": "张三"}, { "ID": 1, "name": "李四" } ]';
+    var jsonObject = JSON.parse(jsonString);
+    var string = "";
+    for(var i=0; i<jsonObject.length; i++) {
+        string += '&ID='+jsonObject[i].ID+"&name="+jsonObject[i].name;
+    }
+    string = string.substring(1);
+    console.log(string);
+    
+</script>

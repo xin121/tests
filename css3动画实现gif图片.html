@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.time {
+				width: 24px;
+				height: 24px;
+				border: 2px solid #000;
+				border-radius: 24px;
+				display: block;
+				margin: 100px auto;
+				position: relative;
+			
+			}
+			
+			.time:before {
+				position: absolute;
+				content: "";
+				width: 8px;
+				height: 2px;
+				left: 11px;
+				top: 11px;
+				background: #000;
+				/*允许你改变转换元素的位置*/
+				transform-origin: 1px 1px;
+				animation: togo 8s linear infinite;
+			}
+			
+			.time:after {
+				position: absolute;
+				content: "";
+				width: 10px;
+				height: 2px;
+				left: 11px;
+				top: 11px;
+				background: #000;
+				transform-origin: 1px 1px;
+				animation: togo 2s linear infinite;
+			}
+			
+			@keyframes togo {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+			
+			.load {
+				position: relative;
+				width: 6px;
+				height: 6px;
+				border-radius: 6px;
+				background: #000;
+				display: block;
+				margin: 100px auto;
+				animation: load 1s linear infinite alternate;
+			}
+	
+			@keyframes load {
+				0% {
+					background-color: rgba(0, 0, 0, 1);
+					box-shadow: 12px 0px 0px 0px rgba(0, 0, 0, 0.2), 24px 0px 0px 0px rgba(0, 0, 0, 0.2);
+				}
+				25% {
+					background-color: rgba(0, 0, 0, 0.4);
+					box-shadow: 12px 0px 0px 0px rgba(0, 0, 0, 2), 24px 0px 0px 0px rgba(0, 0, 0, 0.2);
+				}
+				75% {
+					background-color: rgba(0, 0, 0, 0.4);
+					box-shadow: 12px 0px 0px 0px rgba(0, 0, 0, 0.2), 24px 0px 0px 0px rgba(0, 0, 0, 1);
+				}
+			}
+			.adress{
+				display: block;
+				margin: 100px auto;
+				position: relative;
+				width: 100px;
+				height: 100px;
+			}
+			.adress:before{
+				position: absolute;
+				content: "";
+				left: 50px;
+				top: 0;
+				width: 20px;
+				height: 20px;
+				border-radius: 100% 100% 100% 0;
+				border: 2px solid #000;
+				transform: rotate(-45deg);
+				animation: up 1s linear infinite;
+			}
+			.adress:after{
+				position: absolute;
+				content: "";
+				left: 47px;
+				top: 30px;
+				width: 30px;
+				height: 10px;
+				border-radius: 100%;
+				background: #C9C5C5;
+			}
+			@keyframes up{
+				0%{
+					top: 0;
+				}
+				50%{
+					top: -5px;
+				}
+				100%{
+					top: 0;
+				}
+			}
+			.boxshow{
+				width: 20px;
+				height: 20px;
+				background: #000;
+				border-radius: 100%;
+				box-shadow: 40px 0 0 0 #000000,80px 0 0 0 #000000;
+				display: block;
+				margin: 100px auto;
+				position: relative;
+			}
+			.boxshow:after{
+				position: absolute;
+				content: "";
+				width: 10px;
+				height: 10px;
+				background: #fff;
+				border-radius: 100%;
+				box-shadow: 40px 0 0 0 #fff,80px 0 0 0 #fff;
+				bottom: 2px;
+				right: 3px;
+				animation: left 2s linear infinite;
+			}
+			@keyframes left{
+				0%{
+					right:3px;
+				}
+				100%{
+					right: 7px;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<span class="time"></span>
+		<span class="load"></span>
+		<span class="adress"></span>
+		<span class="boxshow"></span>
+		<span class="app"></span>
+	</body>
+
+</html>

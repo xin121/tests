@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.foo,.bar,.lalal{
+				height:400px;
+				width:800px;
+				background:#ccc;
+				/*float: left;*/
+				margin: 20px auto;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="foo" style="height: 1000px;" ></div>
+	<div class="bar" data-move-z="-500px"  data-move-z="200px" data-rotate-x="90deg" ></div>
+	<div class="lalal" data-move-z="-500px" data-move-z="200px" data-rotate-x="90deg" ></div>
+	</body>
+</html>
+ <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/jquery.smoove.min.js"></script>
+<script>
+	$(".foo, .bar,.lalal").smoove({
+    offset  : '40%',
+    // moveX is 覆盖 ".bar" 的 -200px 
+	//  moveX   : '100px',
+	//  moveY   : '100px',
+  });
+</script>

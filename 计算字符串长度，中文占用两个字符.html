@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		<button>click</button>
+	</body>
+</html>
+<script type="text/javascript" src="angular/js/jquery-1.12.0.min.js" ></script>
+<script>
+	$('button').click(function(){
+		var str = $('input').val();
+		console.log(calculate_byte(str));
+		
+	})
+	function calculate_byte(sTargetStr) {
+	    var sTmpStr, sTmpChar;
+	    var nOriginLen = 0;
+	    var nStrLength = 0;
+	 
+	    sTmpStr = new String(sTargetStr);
+	    nOriginLen = sTmpStr.length;
+	 
+	    for (var i = 0; i < nOriginLen; i++) {
+	        sTmpChar = sTmpStr.charAt(i);
+	 
+	        if (escape(sTmpChar).length > 4) {
+	            nStrLength += 2;
+	        } else if (sTmpChar != 'r') {
+	            nStrLength++;
+	        }
+	    }
+	 
+	    return nStrLength;
+	}
+</script>

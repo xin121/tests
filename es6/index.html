@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="dist/index.js"></script>
+	</head>
+	<body>
+		hello
+	</body>
+</html>
+<script>
+	//反撇号模板字符串
+	//${expression}占位符，占位符中的表达式和周围的文本一起传递一个默认函数，该函数负责将所有的部分联系在一起
+	var name = '丁香医生';
+	var desc = '丁香医生是面向大众的科普性健康类网站';
+	var html = `公司名：${name}
+    	简介：${desc}`;
+    	var i = 0;
+        alert(html);
+    	let a = {
+			name:'hehe'
+		};
+		let b = [
+			{id:1},
+			{id:2}
+		];
+		let temp = {
+			'@name':'$.name',
+			'@@ids':'$..id'
+		};
+		let result = reflect(temp,a,b);
+
+function Animal(){
+	this.word = "";
+	this.say = function(){
+		return "say"+this.word;
+	}
+}
+var Dog = new Animal();
+var Cat = new Animal();
+Dog.word = "wang";
+Cat.word = "miao";
+</script>

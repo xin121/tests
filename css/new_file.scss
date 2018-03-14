@@ -1,0 +1,26 @@
+body {
+  background: #f5f7f8;
+}
+
+//$bgColors: #b03532 #33a8a5 #30997a #6a478f #da6f2b #3d8bb1;
+
+//div {
+//display: grid;
+//width: 100%;
+//max-width: 600px;
+//margin: 0 auto;
+//grid-template-columns: 300px 200px 100px;
+//grid-template-rows: 100px 50px;
+//
+//div {
+//color: white;
+//font-size: 20px;
+//padding: 20px;
+//
+//  @for $i from 1 through length($bgColors) {
+//    &:nth-child(#{$i}){
+//      background: nth($bgColors, $i);
+//    }
+//  }
+//}
+//}
