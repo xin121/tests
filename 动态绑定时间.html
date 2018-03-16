@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="div">
+			<p class="p">lajfwehiufh</p>
+			</div>
+		<button>点击</button>
+	</body>
+</html>
+<script type="text/javascript" src="angular/js/jquery-1.12.0.min.js" ></script>
+<script>
+	$('button').click(function(){
+		var _html='';
+		for(var i=0;i<10;i++){
+			_html +='<p class="p">第'+i+'个元素</p>';
+		}
+		$('.div').append(_html);
+	});
+	
+	//直接绑定事件，动态加载的事件找不到
+	//this 指向当前所处理的 DOM 元素
+//	$('.p').click(function(){
+//		alert($(this).text());
+//		console.log($(this).text());
+//	})
+	$('.p').trigger('click');
+//把事件委托到父元素上。当点击父元素时，事件会一层层从event target向上冒泡。直到找到该节点。
+//	$('.div').on('click','.p',function(event){
+//		alert($(this).text());
+//		console.log($(this).text());
+//		event.stopPropagation();
+//		event.preventDefault();
+//	})
+//	$('.div').bind('click','.p',function(){
+//		alert($(this).text());
+//		console.log($(this).text());
+//	})
+//	$(".div").delegate(".p", "click", function () {
+//		alert($(this).text());
+//		console.log($(this).text());
+//	})
+</script>
