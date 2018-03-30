@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.bg {
+				position: relative;
+				background: url(img/形状-628-拷贝-11.png) no-repeat;
+				margin: 50px auto;
+				width: 566px;
+				height: 345px;
+			}
+			
+			.g1 {
+				position: absolute;
+				bottom: 85px;
+				right: 210px;
+				width: 64px;
+				height: 54px;
+			}
+			
+			.g1-a,
+			.g6-a {
+				position: absolute;
+			}
+			.g6-a{
+				z-index: 9;
+			}
+			.g1-b {
+				position: absolute;
+				left: 12px;
+			}
+			
+			.g2 {
+				position: absolute;
+				top: 115px;
+				right: 115px;
+				width: 62px;
+				height: 94px;
+			}
+			
+			.g2-b {
+				position: absolute;
+				top: 0px;
+				left: 12px;
+			}
+			
+			.g2-line {
+				position: absolute;
+			}
+			
+			.g3 {
+				position: absolute;
+				width: 78px;
+				height: 68px;
+				bottom: 175px;
+				left: 95px;
+			}
+			
+			.g3-a {
+				position: absolute;
+			}
+			
+			.g4 {
+				position: absolute;
+				width: 78px;
+				height: 99px;
+				bottom: 220px;
+				left: 170px;
+			}
+			
+			.g4-b {
+				position: absolute;
+				
+				display: inline-block;
+				width: 12px;
+				height: 3px;
+				background: #fff96f;
+				box-shadow: 0 0 6px 0 #fff96f;
+				top: 46px;
+				right: 42px;
+				transform: rotate(24deg);
+				-ms-transform: rotate(24deg);
+				/* IE 9 */
+				-moz-transform: rotate(24deg);
+				/* Firefox */
+				-webkit-transform: rotate(24deg);
+				/* Safari 和 Chrome */
+				-o-transform: rotate(24deg);
+				animation: g4-b 1.5s infinite linear;
+			}
+			
+			.g4-b:after {
+				position: absolute;
+				content: '';
+				
+				width: 12px;
+				height: 3px;
+				background: #7eded2;
+				box-shadow: 0 0 6px 0 #7eded2;
+				top: 5px;
+				left: 1px;
+				animation: g4-ba 1.5s infinite linear;
+			}
+			@keyframes g4-b {
+				0 {
+					background: #fff96f;
+					box-shadow: 0 0 6px 0 #fff96f;
+				}
+				100% {
+					background: #7eded2;
+				box-shadow: 0 0 6px 0 #7eded2;
+				}
+			}
+			@keyframes g4-ba {
+				0 {
+					background: #7eded2;
+				box-shadow: 0 0 6px 0 #7eded2;
+				}
+				100% {
+					background: #fff96f;
+					box-shadow: 0 0 6px 0 #fff96f;
+					
+				}
+			}
+			.g5 {
+				position: absolute;
+				width: 78px;
+				height: 99px;
+				top: -20px;
+				left: 250px;
+			}
+			
+			.g6 {
+				position: absolute;
+				top: 55px;
+				left: 215px;
+				width: 143px;
+				height: 155px;
+			}
+			
+			.g6-b {
+				position: absolute;
+				left: 14px;
+				top: -15px;
+				animation: g6-b 1.2s infinite linear;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+				z-index: 10;
+			}
+			
+			
+			.g6a {
+				transform: rotateX(50deg);
+				position: absolute;
+				bottom: -8px;
+			    left: 16px;
+			    width: 110px;
+			    height: 110px;
+			    z-index: 9;
+			}
+			
+			.g6a-a {
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				border-radius: 100%;
+				background: -webkit-linear-gradient(left bottom, #ffa41d, #ffda4b);
+				border: 6px solid #4c16a8;
+				animation: g6-a 7s infinite linear;
+				
+			}
+			
+			.g6a-a:after {
+				position: absolute;
+				content: '';
+				width: 110px;
+				height: 110px;
+				border: 2px dashed #1d5df3;
+				border-radius: 100%;
+				left: -6px;
+				top: -6px;
+			}
+			
+			.ray {
+				    /*left: -13px;
+				    bottom: 5px;
+				    position: absolute;
+				  	height: 0;
+				    width: 87px;
+				    border-top: 200px solid rgba(176,130,143,0.2);
+				    border-left: 25px solid transparent;
+				    border-right: 25px solid transparent;
+				    border-bottom-left-radius: 65%;
+				    border-bottom-right-radius: 65%;*/
+				  left: -1px;
+			    bottom: 13px;
+			    position: absolute;
+			    background: -webkit-linear-gradient(top, rgba(255,211,66,0.7),rgba(255,211,66,0.4), rgba(146,62,174,0.01));
+			    border-top-left-radius: 42%;
+			    border-top-right-radius: 42%;
+			    height: 154px;
+			    width: 114px;
+			    /* transform-origin: top; */
+			    transform: scaleY(-1.4) perspective(.5em) rotateX(1.5deg);
+			}
+			
+			@keyframes g6-a {
+				0 {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+			
+			@keyframes g6-b {
+				0% {
+					top: -15px;
+				}
+				50% {
+					top: -18px;
+				}
+				100% {
+					top: -15px;
+				}
+			}
+			.g1-line{
+				position: absolute;
+			    width: 40px;
+			    height: 2px;
+			    background: #4d16a8;
+			    transform: rotateZ(30deg);
+			    left: -35px;
+			    top: 0px;
+			}
+			.g1-line:after {
+			    position: absolute;
+			    content: '';
+			    width: 80px;
+			    height: 2px;
+			    background: -webkit-linear-gradient(left, #4d16a8,#10dcf5);
+			    top: 37px;
+			    right: 16px;
+			    transform: rotateZ(115deg);
+			}
+			.g1-line:before{
+				position: absolute;
+			    content: '';
+			    width: 14px;
+			    height: 14px;
+			    background: #10dcf5;
+			    border-radius: 100%;
+			    top: 72px;
+			    left: -40px;
+			    transform: rotateX(0deg);
+			}
+			.g6-line{
+			    position: absolute;
+			    width: 90px;
+			    height: 2px;
+			    /*background: -webkit-linear-gradient(left, #4d16a8 1px,#10dcf5);*/
+			    transform: rotateZ(145deg);
+			    bottom: 6px;
+			    left: -43px;
+			}
+			.g6-line:before{
+				 position: absolute;
+				 content: '';
+				 width: 90px;
+			    height: 2px;
+			    background: -webkit-linear-gradient(left, #4d16a8 1px,#10dcf5);;
+			    transform: rotateZ(1deg);
+			    animation: g6-line 3s 1 linear;
+			}
+			@keyframes g6-line {
+				0% {
+					width: 0px;
+				}
+				100% {
+					width: 90px;
+				}
+				
+			}
+			.g6-line:after{
+				position: absolute;
+			    content: '';
+			    width: 14px;
+			    height: 14px;
+			    background: #10dcf5;
+			    border-radius: 100%;
+			    right: -14px;
+			    bottom: -5px;
+			    
+			    transform: rotateX(0deg);
+			    animation: g6-lineb 1s 1 linear 3s;
+			    opacity: 0;
+			}
+			@keyframes g6-lineb {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+				
+			}
+			.g3-line{
+			    position: absolute;
+			    width: 26px;
+			    height: 2px;
+			    background: #454ce5;
+			    right: -35px;
+			    bottom: 13px;
+			    transform: rotateZ(30deg);
+			}
+			.g3-line:after{
+				position: absolute;
+			    content: '';
+			    width: 22px;
+			    height: 2px;
+			    background: #454ce5;
+			    transform: rotateZ(115deg);
+			    right: -5px;
+			    top: 10px;
+			}
+			.g3-line .g3-line{
+			    transform: rotateZ(0deg);
+			    top: 19px;
+			    left: 15px;
+			    background: -webkit-linear-gradient(left, #454ce5,#10dcf5);
+			}
+			.g3-line .g3-line:after{
+				background: -webkit-linear-gradient(left, #10dcf5,#10dcf5);
+				width: 60px;
+			    top: 28px;
+			    right: -16px;
+			}
+			.g3-line .g3-line:before{
+				position: absolute;
+			    content: '';
+			    width: 14px;
+			    height: 14px;
+			    background: #10dcf5;
+			    border-radius: 100%;
+		        right: 20px;
+				top: 53px;
+			    transform: rotateX(0deg);
+			}
+			.g6-linea{
+				position: absolute;
+				width: 90px;
+				height: 2px;
+				background: #593fff;
+				-webkit-perspective:500;
+				transform: rotateZ(145deg);
+				right: -40px;
+    			bottom: 95px;
+			}
+			.g6-linea:after{
+				position: absolute;
+			    content: '';
+			    width: 14px;
+			    height: 14px;
+			    background: #593fff;
+			    border-radius: 100%;
+		        left: -10px;
+				bottom: -7px;
+				/*-webkit-perspective:500;*/
+			    transform: rotateX(20deg);
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="bg">
+			<!--<img class="foot" src="img/形状-628-拷贝-11.png" />-->
+			<div class="g1">
+				<img class="g1-a" src="img/组-4-拷贝-3.png" />
+				<img class="g1-b" src="img/组-5.png" />
+				<div class="g1-line">
+					
+				</div>
+			</div>
+			<div class="g2">
+				<img class="g2-a" src="img/组-4-拷贝-2.png" />
+				<img class="g2-b" src="img/组-5.png" />
+				<span class="g2-line">
+				</span>
+			</div>
+			<div class="g3">
+				<img class="g3-a" src="img/组-6.png" />
+				<div class="g3-line">
+					<div class="g3-line">
+						
+					</div>
+				</div>
+			</div>
+			<div class="g4">
+				<img class="g4-a" src="img/组-7.png" />
+				<span class="g4-b">
+				</span>
+			</div>
+			<div class="g5">
+				<img class="g4-a" src="img/组-7.png" />
+				<span class="g4-b">
+				</span>
+			</div>
+			<div class="g6">
+				<!--<img class="g6-a" src="img/组-31.png" />-->
+				<div class="g6a">
+					<div class="g6a-a">
+					</div>
+					<div class="ray">
+
+					</div>
+				</div>
+				<div class="g6-line"></div>
+				<div class="g6-linea"></div>
+				<img class="g6-b" src="img/MS-Link.png" />
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+<script>
+//	alert("aa");
+</script>

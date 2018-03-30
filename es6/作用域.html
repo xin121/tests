@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		promise对象代表一个异步操作，有三中状态，pending（进行中）
+		resolved（已完成）rejected（已失败）
+	</body>
+</html>
+<script>
+//	function aa(){
+//		if(bool){
+//			let test = 'hello man'
+//		}else{
+//			console.log(test)
+//		}
+//	}
+//作用域
+//var funcs = [];
+//for(let i = 0;i<15;i++){
+//	funcs.push(function(){
+//		console.log(i)
+//	})
+//}
+// funcs.forEach(function(func) {
+//      func()
+//  })
+// 
+ //模板字符串，反引号可以拼接换行字符串
+// const people = {
+// 	name:'lux',
+// }
+// 
+// var test = new Promise(function(resolve,reject){
+// 	setTimeout(function(){
+// 		console.log('ooo');
+// 		resolve();
+// 	},4000)
+// 	
+// });
+// test.then(function(){
+// 	console.log('2222');
+// })
+ 
+ 
+// function test(){
+// 	return new Promise(function(resolve,reject){
+// 		setTimeout(function(){
+// 			console.log('ooo');
+// 			resolve();
+// 		},4000)
+// 	})
+// }
+// function aftertest(){
+// 	console.log('ll')
+// }
+// test().then(aftertest())
+ 
+// var p= new Promise((resolve,reject)=>{
+// 	setTimeout(resolve,2000)
+// })
+// .then(()=>setTimeout(null,2000))
+// .then(()=>setTimeout(function(){
+// 	console.log("ss");
+// },2000))
+//var p = new Promise(function(resolve,reject){
+//	var a = 1
+//	resolve(a);
+//}).then(function(data){
+//	console.log(data);
+//	return ++data;
+//}).then(function(data){
+//	console.log(data);
+//})
+
+
+//promise
+function runAsync(){
+    var p = new Promise(function(resolve, reject){
+        //做一些异步操作
+//      setTimeout(function(){
+          
+            resolve('随便什么数据');
+              console.log('执行完成');
+//      }, 2000);
+    });
+    return p;            
+}
+//runAsync()
+
+var p = new Promise(function(resolve,reject){
+//	resolve();
+	console.log(this);
+//	console.dir()查看定位信息
+	console.timeEnd("控制台计时器一");
+//console.log("%d年%d月%d日",2018,3,22);
+})
+function getNumber(){
+	var p = new Promise(function(resolve,reject){
+		setTimeout(function(){
+			//随机数
+			var num = Math.ceil(Math.random()*10);
+			if(num <= 5){
+				resolve(num);
+			}else{
+				reject('数字太大')
+			}
+		},200)
+	});
+	return p;
+}
+//getNumber()
+//.then(function(data){
+//	console.log(data);
+//},function(reason,data){
+//	console.log('sd');
+//	console.log(reason);
+//})
+function test(){
+	console.log("aa");
+
+}
+test()
+.then(function(){
+	console.log("mmm");
+})
+</script>
